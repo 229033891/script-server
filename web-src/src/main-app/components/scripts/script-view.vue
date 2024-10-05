@@ -22,6 +22,13 @@
       <div v-if="schedulable" class="button-gap"></div>
       <ScheduleButton v-if="schedulable" :disabled="!enableScheduleButton" @click="openSchedule"/>
     </div>
+    <div v-if="inputPromptText" v-show="!hideExecutionControls" class="script-input-panel input-field">
+      <label :for="'inputField-' + id" class="script-input-label">{{ inputPromptText }}</label>
+      <input :id="'inputField-' + id" ref="inputField"
+             class="script-input-field"
+             type="text"
+             v-on:keyup="inputKeyUpHandler">
+    </div>
     <LogPanel v-show="showLog && !hasErrors && !hideExecutionControls" ref="logPanel" :outputFormat="outputFormat"/>
     <LogPanel v-if="preloadOutput && !showLog && !hasErrors && !hideExecutionControls"
               ref="preloadOutputPanel"
@@ -43,13 +50,7 @@
         <i class="material-icons right">file_download</i>
       </a>
     </div>
-    <div v-if="inputPromptText" v-show="!hideExecutionControls" class="script-input-panel input-field">
-      <label :for="'inputField-' + id" class="script-input-label">{{ inputPromptText }}</label>
-      <input :id="'inputField-' + id" ref="inputField"
-             class="script-input-field"
-             type="text"
-             v-on:keyup="inputKeyUpHandler">
-    </div>
+
     <ScriptViewScheduleHolder v-if="!hideExecutionControls"
                               ref="scheduleHolder"
                               :scriptConfigComponentsHeight="scriptConfigComponentsHeight"
