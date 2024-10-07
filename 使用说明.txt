@@ -11,4 +11,4 @@ init.py script should be run after pulling any new changes
 切换到 CD D:\script-server\web-src\ 执行以下命令
 npm run serve 生成测试环境
 npm run build 生成正式的web文件
-4. 生成web文件时,node.js安装V16版本,其他高版本可能会报错
+4. 生成web文件时,node.js安装V16版本,其他高版本可能会报错,需要安装vue-cli-service
