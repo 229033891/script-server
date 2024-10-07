@@ -1,3 +1,21 @@
+0.修改pip包镜像源 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+1.修改文件D:\py\script-server\web-src\src\main-app\components\scripts\script-view.vue。将input放到execute下面。
+2.For development
+
+    Clone/download the repository
+    Run 'tools/init.py --no-npm' script
+    cd D:\script-server-dev\tools
+    python init.py --no-npm
+init.py script should be run after pulling any new changes
+
+3.If you are making changes to web files, use npm run build or npm run serve
+切换到 CD D:\script-server\web-src\ 执行以下命令
+npm run serve 生成测试环境
+npm run build 生成正式的web文件
+4. 生成web文件时,node.js安装V16版本,其他高版本可能会报错,需要安装vue-cli-service
+
+
 [![Build Status](https://travis-ci.com/bugy/script-server.svg?branch=master&status=passed)](https://travis-ci.com/bugy/script-server) [![Gitter](https://badges.gitter.im/script-server/community.svg)](https://gitter.im/script-server/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # script-server
@@ -27,6 +45,7 @@ No script modifications are needed - you configure each script in Script server 
 
 For more details check [how to configure a script](https://github.com/bugy/script-server/wiki/Script-config)
 or [how to configure the server](https://github.com/bugy/script-server/wiki/Server-configuration)
+ 
 
 ## Requirements
 
