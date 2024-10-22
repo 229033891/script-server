@@ -15,8 +15,6 @@ npm run build 生成正式的web文件
 4. 生成web文件时,node.js安装V16版本,其他高版本可能会报错,需要安装vue-cli-service
 
 
-[![Build Status](https://travis-ci.com/bugy/script-server.svg?branch=master&status=passed)](https://travis-ci.com/bugy/script-server) [![Gitter](https://badges.gitter.im/script-server/community.svg)](https://gitter.im/script-server/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 # script-server
 Script-server is a Web UI for scripts.  
 
