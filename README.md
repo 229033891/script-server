@@ -23,7 +23,7 @@ The UI is very straightforward and can be used by non-tech people.
 
 No script modifications are needed - you configure each script in Script server and it creates the corresponding UI with parameters and takes care of validation, execution, etc.  
 
-[DEMO server](https://script-server.net/)
+
 
 [Admin interface screenshots](https://github.com/bugy/script-server/wiki/Admin-interface)
 
