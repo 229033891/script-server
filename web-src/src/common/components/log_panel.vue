@@ -247,9 +247,9 @@ export default {
   height: 100%;
   width: 100%;
 
-  font-size: .875em;
+  font-size: 1rem;
 
-  padding: 1.5em;
+  padding: 0.5em;
 
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;

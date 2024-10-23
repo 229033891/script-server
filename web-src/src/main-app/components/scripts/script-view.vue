@@ -507,7 +507,7 @@ export default {
   margin: 0;
   width: 100%;
   height: 1.5em;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .script-input-panel > label {

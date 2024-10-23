@@ -99,7 +99,6 @@ export default {
   overflow-wrap: normal;
   border: none;
   margin: 0;
-
   flex-grow: 1;
 }
 
