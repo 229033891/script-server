@@ -1,5 +1,3 @@
-
-1.修改文件D:\py\script-server\web-src\src\main-app\components\scripts\script-view.vue。将input放到execute下面。
 2.For development
 
     Clone/download the repository
