@@ -1,0 +1,17 @@
+{
+  "port": 443,
+  "address": "0.0.0.0",
+  "title": "My Script Server",
+"ssl": {
+    "key_path": "conf/ssl/py.cschub.vip.key",
+    "cert_path": "conf/ssl/py.cschub.vip.crt"
+  },
+  "logging": {
+    "execution_file": "$DATE-$ID.log",
+    "execution_date_format": "%y-%m-%d_%H-%M"
+  },
+  "security": {
+    "xsrf_protection": "token"
+  }
+
+}
