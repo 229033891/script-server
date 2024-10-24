@@ -17,9 +17,25 @@ def input_with_timeout(prompt, timeout):
         os._exit(1)  # 超时立即退出程序
     return result[0]
 
+def find_script_server_dir(starting_dir):
+    """从起始目录向上查找 script-server 目录"""
+    current_dir = starting_dir
+    while True:
+        if os.path.basename(current_dir) == 'script-server':
+            return current_dir
+        parent_dir = os.path.dirname(current_dir)
+        if parent_dir == current_dir:  # 已到达文件系统的根目录
+            break
+        current_dir = parent_dir
+    return None
+
 def get_htpasswd_file_path():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    htpasswd_dir = os.path.join(script_dir, 'conf')
+    script_server_dir = find_script_server_dir(script_dir)
+    if script_server_dir is None:
+        raise Exception("未找到 script-server 目录")
+    
+    htpasswd_dir = os.path.join(script_server_dir, 'conf')
     if not os.path.exists(htpasswd_dir):
         os.makedirs(htpasswd_dir)
     htpasswd_file = os.path.join(htpasswd_dir, '.htpasswd')
@@ -27,10 +43,10 @@ def get_htpasswd_file_path():
 
 def create_htpasswd_file(htpasswd_file):
     if os.path.exists(htpasswd_file):
-        print(f"错误: {htpasswd_file} 已经存在。")
+        print(f"\033[91m错误: {htpasswd_file} 已经存在。\033[0m")
     else:
         open(htpasswd_file, 'w').close()
-        print(f"{htpasswd_file} 创建成功。")
+        print(f"\033[92m{htpasswd_file} 创建成功。\033[0m")
 
 def generate_random_password(length=12):
     characters = string.ascii_letters + string.digits
@@ -38,10 +54,9 @@ def generate_random_password(length=12):
     return password
 
 def add_user(username, password, htpasswd_file):
-    # 使用纯文本形式存储密码
     with open(htpasswd_file, 'a') as file:
         file.write(f"{username}:{password}\n")
-    print(f"用户 {username} 添加成功。")
+    print(f"\033[92m用户 {username} 添加成功。\033[0m")
     print(f"用户名: {username}")
     print(f"密码: {password}")
 
@@ -61,14 +76,14 @@ def change_user_password(username, new_password, htpasswd_file):
                     file.write(line)
         
         if not updated:
-            print(f"用户 '{username}' 未找到。")
+            print(f"\033[91m用户 '{username}' 未找到。\033[0m")
         else:
-            print(f"用户 '{username}' 的密码已更新。")
+            print(f"\033[92m用户 '{username}' 的密码已更新。\033[0m")
             print(f"用户名: {username}")
             print(f"新密码: {new_password}")
 
     except Exception as e:
-        print(f"发生错误: {e}")
+        print(f"\033[91m发生错误: {e}\033[0m")
 
 def manual_change_user_password(username, htpasswd_file):
     while True:
@@ -76,9 +91,9 @@ def manual_change_user_password(username, htpasswd_file):
         confirm_password = input_with_timeout("请再次输入新密码: ", 60)
         
         if new_password != confirm_password:
-            print("两次输入的密码不匹配。请再试一次。")
+            print("\033[91m两次输入的密码不匹配。请再试一次。\033[0m")
         elif len(new_password) <= 5:
-            print("密码长度必须大于5个字符。请再试一次。")
+            print("\033[91m密码长度必须大于5个字符。请再试一次。\033[0m")
         else:
             change_user_password(username, new_password, htpasswd_file)
             break
@@ -98,19 +113,19 @@ def delete_user(username, htpasswd_file):
                     deleted = True
         
         if not deleted:
-            print(f"用户 '{username}' 未找到。")
+            print(f"\033[91m用户 '{username}' 未找到。\033[0m")
         else:
-            print(f"用户 '{username}' 已被删除。")
+            print(f"\033[92m用户 '{username}' 已被删除。\033[0m")
 
     except Exception as e:
-        print(f"发生错误: {e}")
+        print(f"\033[91m发生错误: {e}\033[0m")
 
 def main():
     htpasswd_file = get_htpasswd_file_path()
 
     while True:
         print("\n菜单:")
-        print("1. 创建 htpasswd 文件")
+        print("1. 生成文件(勿动)")
         print("2. 添加用户")
         print("3. 自动更改用户密码")
         print("4. 手动更改用户密码")
@@ -139,7 +154,7 @@ def main():
                 new_password = generate_random_password()
                 change_user_password(username, new_password, htpasswd_file)
             else:
-                print(f"用户 '{username}' 未找到。请再试一次。")
+                print(f"\033[91m用户 '{username}' 未找到。请再试一次。\033[0m")
 
         elif choice == '4':
             username = input_with_timeout("请输入用户名: ", 60)
@@ -148,7 +163,7 @@ def main():
             if username_exists(username, htpasswd_file):
                 manual_change_user_password(username, htpasswd_file)
             else:
-                print(f"用户 '{username}' 未找到。请再试一次。")
+                print(f"\033[91m用户 '{username}' 未找到。请再试一次。\033[0m")
 
         elif choice == '5':
             username = input_with_timeout("请输入用户名: ", 60)
@@ -160,14 +175,14 @@ def main():
             if username == confirm_username:
                 delete_user(username, htpasswd_file)
             else:
-                print("两次输入的用户名不匹配。")
+                print("\033[91m两次输入的用户名不匹配。\033[0m")
 
         elif choice == '@':
             print("退出程序。")
             break
 
         else:
-            print("无效选项。请再试一次。")
+            print("\033[91m无效选项。请再试一次。\033[0m")
 
 def username_exists(username, htpasswd_file):
     if not os.path.exists(htpasswd_file):
