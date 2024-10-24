@@ -87,16 +87,27 @@ def change_user_password(username, new_password, htpasswd_file):
 
 def manual_change_user_password(username, htpasswd_file):
     while True:
-        new_password = input_with_timeout("请输入新密码: ", 60)
-        confirm_password = input_with_timeout("请再次输入新密码: ", 60)
-        
-        if new_password != confirm_password:
-            print("\033[91m两次输入的密码不匹配。请再试一次。\033[0m")
-        elif len(new_password) <= 5:
-            print("\033[91m密码长度必须大于5个字符。请再试一次。\033[0m")
-        else:
-            change_user_password(username, new_password, htpasswd_file)
-            break
+        old_password = input_with_timeout("请输入旧密码: ", 60)
+        if old_password == "@":
+            return
+        if not verify_user_password(username, old_password, htpasswd_file):
+            print("\033[91m旧密码错误。请再试一次。\033[0m")
+            continue
+        while True:
+            new_password = input_with_timeout("请输入新密码: ", 60)
+            if new_password == "@":
+                return
+            confirm_password = input_with_timeout("请再次输入新密码: ", 60)
+            if confirm_password == "@":
+                return
+                
+            if new_password != confirm_password:
+                print("\033[91m两次输入的密码不匹配。请再试一次。\033[0m")
+            elif len(new_password) <= 5:
+                print("\033[91m密码长度必须大于5个字符。请再试一次。\033[0m")
+            else:
+                change_user_password(username, new_password, htpasswd_file)
+                return
 
 def delete_user(username, htpasswd_file):
     try:
@@ -119,6 +130,20 @@ def delete_user(username, htpasswd_file):
 
     except Exception as e:
         print(f"\033[91m发生错误: {e}\033[0m")
+
+def verify_user_password(username, password, htpasswd_file):
+    try:
+        with open(htpasswd_file, 'r') as file:
+            lines = file.readlines()
+
+        for line in lines:
+            stored_user, stored_password = line.strip().split(':', 1)
+            if stored_user == username and stored_password == password:
+                return True
+        return False
+    except Exception as e:
+        print(f"\033[91m发生错误: {e}\033[0m")
+        return False
 
 def main():
     htpasswd_file = get_htpasswd_file_path()
