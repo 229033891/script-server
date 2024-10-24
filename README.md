@@ -1,4 +1,9 @@
-1.项目目录下执行下列代码,去除github同步代理报错的问题
+0.激活环境
+
+ssenv\Scripts\activate
+
+1. 项目目录下执行下列代码,去除github同步代理报错的问题
+
 git config --global --unset http.proxy 
 git config --global --unset https.proxy
 
