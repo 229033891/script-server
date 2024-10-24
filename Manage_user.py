@@ -109,28 +109,6 @@ def manual_change_user_password(username, htpasswd_file):
                 change_user_password(username, new_password, htpasswd_file)
                 return
 
-def delete_user(username, htpasswd_file):
-    try:
-        with open(htpasswd_file, 'r') as file:
-            lines = file.readlines()
-
-        deleted = False
-        with open(htpasswd_file, 'w') as file:
-            for line in lines:
-                stored_user, _ = line.strip().split(':', 1)
-                if stored_user != username:
-                    file.write(line)
-                else:
-                    deleted = True
-        
-        if not deleted:
-            print(f"\033[91m用户 '{username}' 未找到。\033[0m")
-        else:
-            print(f"\033[92m用户 '{username}' 已被删除。\033[0m")
-
-    except Exception as e:
-        print(f"\033[91m发生错误: {e}\033[0m")
-
 def verify_user_password(username, password, htpasswd_file):
     try:
         with open(htpasswd_file, 'r') as file:
@@ -154,7 +132,6 @@ def main():
         print("2. 添加用户")
         print("3. 自动更改用户密码")
         print("4. 手动更改用户密码")
-        print("5. 删除用户")
         print("@. 退出")
         choice = input_with_timeout("请选择一个选项: ", 60)
 
@@ -176,8 +153,7 @@ def main():
             if username is None:
                 os._exit(1)
             if username_exists(username, htpasswd_file):
-                new_password = generate_random_password()
-                change_user_password(username, new_password, htpasswd_file)
+                auto_change_user_password(username, htpasswd_file)
             else:
                 print(f"\033[91m用户 '{username}' 未找到。请再试一次。\033[0m")
 
@@ -189,18 +165,6 @@ def main():
                 manual_change_user_password(username, htpasswd_file)
             else:
                 print(f"\033[91m用户 '{username}' 未找到。请再试一次。\033[0m")
-
-        elif choice == '5':
-            username = input_with_timeout("请输入用户名: ", 60)
-            if username is None:
-                os._exit(1)
-            confirm_username = input_with_timeout("请确认用户名: ", 60)
-            if confirm_username is None:
-                os._exit(1)
-            if username == confirm_username:
-                delete_user(username, htpasswd_file)
-            else:
-                print("\033[91m两次输入的用户名不匹配。\033[0m")
 
         elif choice == '@':
             print("退出程序。")
