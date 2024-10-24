@@ -1,6 +1,21 @@
 import os
 import random
 import string
+import threading
+
+def input_with_timeout(prompt, timeout):
+    """带超时的输入"""
+    result = [None]
+    def target():
+        result[0] = input(prompt)
+    
+    thread = threading.Thread(target=target)
+    thread.start()
+    thread.join(timeout)
+    if thread.is_alive():
+        print("\033[91m超时! 程序将自动退出。\033[0m")
+        os._exit(1)  # 超时立即退出程序
+    return result[0]
 
 def get_htpasswd_file_path():
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -57,8 +72,8 @@ def change_user_password(username, new_password, htpasswd_file):
 
 def manual_change_user_password(username, htpasswd_file):
     while True:
-        new_password = input("请输入新密码: ")
-        confirm_password = input("请再次输入新密码: ")
+        new_password = input_with_timeout("请输入新密码: ", 60)
+        confirm_password = input_with_timeout("请再次输入新密码: ", 60)
         
         if new_password != confirm_password:
             print("两次输入的密码不匹配。请再试一次。")
@@ -101,18 +116,25 @@ def main():
         print("4. 手动更改用户密码")
         print("5. 删除用户")
         print("@. 退出")
-        choice = input("请选择一个选项: ")
+        choice = input_with_timeout("请选择一个选项: ", 60)
 
+        if choice is None:
+            print("\033[92m退出程序\033[0m")
+            os._exit(1)
         if choice == '1':
             create_htpasswd_file(htpasswd_file)
 
         elif choice == '2':
-            username = input("请输入用户名: ")
+            username = input_with_timeout("请输入用户名: ", 60)
+            if username is None:
+                os._exit(1)
             password = generate_random_password()
             add_user(username, password, htpasswd_file)
 
         elif choice == '3':
-            username = input("请输入用户名: ")
+            username = input_with_timeout("请输入用户名: ", 60)
+            if username is None:
+                os._exit(1)
             if username_exists(username, htpasswd_file):
                 new_password = generate_random_password()
                 change_user_password(username, new_password, htpasswd_file)
@@ -120,15 +142,21 @@ def main():
                 print(f"用户 '{username}' 未找到。请再试一次。")
 
         elif choice == '4':
-            username = input("请输入用户名: ")
+            username = input_with_timeout("请输入用户名: ", 60)
+            if username is None:
+                os._exit(1)
             if username_exists(username, htpasswd_file):
                 manual_change_user_password(username, htpasswd_file)
             else:
                 print(f"用户 '{username}' 未找到。请再试一次。")
 
         elif choice == '5':
-            username = input("请输入用户名: ")
-            confirm_username = input("请确认用户名: ")
+            username = input_with_timeout("请输入用户名: ", 60)
+            if username is None:
+                os._exit(1)
+            confirm_username = input_with_timeout("请确认用户名: ", 60)
+            if confirm_username is None:
+                os._exit(1)
             if username == confirm_username:
                 delete_user(username, htpasswd_file)
             else:
