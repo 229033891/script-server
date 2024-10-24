@@ -1,13 +1,25 @@
-0.激活环境
+1.激活环境
 
 ssenv\Scripts\activate
 
-1. 项目目录下执行下列代码,去除github同步代理报错的问题
+2. 项目目录下执行下列代码,去除github同步代理报错的问题
 
 git config --global --unset http.proxy 
 git config --global --unset https.proxy
 
-2.For development
+3. 将PIP安装镜像源改为清华
+   修改pip包镜像源 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+4. 生成requirements.txt
+   安装：    pip install pipreqs
+   使用方法：
+   pipreqs /path/to/your/project
+   优点：pipreqs 会根据你的代码中实际使用的库生成 requirements.txt，而不是列出所有安装的库。这对减少依赖项非常有用。
+   举例:pipreqs D:\py\Scancheck --force    只需要文件的路径,不需要对应脚本的名称
+
+
+
+5.For development
 
     Clone/download the repository
     Run 'tools/init.py --no-npm' script
@@ -15,7 +27,7 @@ git config --global --unset https.proxy
     python init.py --no-npm
 init.py script should be run after pulling any new changes
 
-3.If you are making changes to web files, use npm run build or npm run serve
+6.If you are making changes to web files, use npm run build or npm run serve
 切换到 CD D:\script-server\web-src\ 执行以下命令
 npm run serve 生成测试环境
 npm run build 生成正式的web文件
