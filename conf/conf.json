@@ -12,6 +12,18 @@
   },
   "security": {
     "xsrf_protection": "token"
+  },
+  "auth": {
+    "type": "htpasswd",
+    "htpasswd_path": "conf/.htpasswd"
+},
+  "access": {
+	"allowed_users": [ "*" ],
+	"admin_users": [ "admin" ],
+	"groups": {
+		"admin": ["admin"],
+		"all": ["@admin","kwang"]
+	}
   }
 
 }
