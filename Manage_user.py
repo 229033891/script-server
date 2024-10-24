@@ -171,7 +171,7 @@ def main():
             break
 
         else:
-            print("\033[91m无效选项。请再试一次。\033[0m")
+            print("\033[91m输入错误。请重试。\033[0m")
 
 def username_exists(username, htpasswd_file):
     if not os.path.exists(htpasswd_file):
