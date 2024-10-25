@@ -4,6 +4,7 @@ import os
 import re
 from string import Template
 from typing import Optional
+from datetime import datetime, timezone, timedelta
 
 from auth.authorization import is_same_user
 from execution.execution_service import ExecutionService
@@ -34,7 +35,6 @@ class ScriptOutputLogger:
 
     def start(self):
         self._ensure_file_open()
-
         self.output_stream.subscribe(self)
 
     def _ensure_file_open(self):
@@ -83,7 +83,6 @@ class ScriptOutputLogger:
 
     def write_line(self, text):
         self._ensure_file_open()
-
         self.__log(text + os.linesep)
 
     def set_close_callback(self, callback):
@@ -120,7 +119,6 @@ class ExecutionLoggingService:
         self._output_loggers = {}
 
         file_utils.prepare_folder(output_folder)
-
         self._renew_files_cache()
 
     def start_logging(self, execution_id,
@@ -136,7 +134,9 @@ class ExecutionLoggingService:
         script_name = str(script_config.name)
 
         if start_time_millis is None:
-            start_time_millis = get_current_millis()
+            # 获取当前时区的时间
+            current_time = datetime.now(timezone(timedelta(hours=8)))
+            start_time_millis = int(current_time.timestamp() * 1000)
 
         log_filename = self._log_name_creator.create_filename(
             execution_id,
@@ -154,7 +154,7 @@ class ExecutionLoggingService:
         output_logger.write_line('user_name:' + user_name)
         output_logger.write_line('user_id:' + user_id)
         output_logger.write_line('script:' + script_name)
-        output_logger.write_line('start_time:' + str(start_time_millis))
+        output_logger.write_line('start_time:' + datetime.fromtimestamp(start_time_millis / 1000).strftime("%Y-%m-%d_%H:%M:%S"))
         output_logger.write_line('command:' + command)
         output_logger.write_line('output_format:' + script_config.output_format)
         output_logger.write_line(OUTPUT_STARTED_MARKER)
