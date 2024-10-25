@@ -18,7 +18,7 @@ from utils.date_utils import get_current_millis, ms_to_datetime
 
 ENCODING = 'utf8'
 
-OUTPUT_STARTED_MARKER = '>>>>>  OUTPUT STARTED <<<<<'
+OUTPUT_STARTED_MARKER = 'OUTPUT-STARTED'
 
 LOGGER = logging.getLogger('script_server.execution.logging')
 
@@ -335,16 +335,26 @@ class ExecutionLoggingService:
     def _write_post_execution_info(log_file_path, exit_code):
         file_content = file_utils.read_file(log_file_path, keep_newlines=True)
 
-        file_parts = file_content.split(OUTPUT_STARTED_MARKER + os.linesep, 1)
+        # 去除多余空白和换行符
+        file_content = file_content.strip()
+        expected_marker = OUTPUT_STARTED_MARKER.strip()
+
+        # 尝试拆分文件内容
+        file_parts = file_content.split(expected_marker, 1)
+
+        # 打印拆分结果用于调试
+        print(f"File parts after split: {file_parts}")
+
+        # 检查拆分结果的长度
         if len(file_parts) < 2:
-            LOGGER.error("Log file is not in the expected format: %s", log_file_path)
-            return
+            raise ValueError(f"File content does not contain expected marker: {OUTPUT_STARTED_MARKER}")
 
-        parameters_text = file_parts[0]
-        parameters_text += 'exit_code:' + str(exit_code) + os.linesep
+        parameters_text = file_parts[0].strip()
+        parameters_text += f'\nexit_code:{exit_code}\n'
 
-        new_content = parameters_text + OUTPUT_STARTED_MARKER + os.linesep + file_parts[1]
+        new_content = f"{parameters_text}\n{OUTPUT_STARTED_MARKER}\n{file_parts[1].strip()}"
         file_utils.write_file(log_file_path, new_content.encode(ENCODING), byte_content=True)
+
     def _can_access_entry(self, entry, user_id, system_call=False):
         if entry is None:
             return True

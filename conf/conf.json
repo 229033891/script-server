@@ -7,7 +7,7 @@
     "cert_path": "conf/ssl/py.cschub.vip.crt"
   },
   "logging": {
-   "execution_file": "${ID}_${DATE}_${IP}_${SCRIPT}_${USERNAME}",
+   "execution_file": "${ID}_${DATE}_${SCRIPT}_${USERNAME}",
     "execution_date_format": "%Y-%m-%d_%H-%M-%S"
   },
   "security": {
