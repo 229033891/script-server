@@ -17,6 +17,21 @@
     "type": "htpasswd",
     "htpasswd_path": "conf/.htpasswd"
 },
+ "alerts": {
+    "destinations": [
+      {
+        "type": "email",
+        "from": "service@integratedlm.com",
+        "to": "229033891@qq.com.com",
+        "server": "smtphz.qiye.163.com",
+        "auth_enabled": true,
+        "login": "service@integratedlm.com",
+        "password": "Integrated@2019",
+        "tls": true,
+        "url": "localhost:443/test_alerts"
+      }
+    ]
+  },
   "access": {
 	"allowed_users": [ "*" ],
 	"admin_users": [ "admin" ],
