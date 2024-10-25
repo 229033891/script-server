@@ -234,75 +234,45 @@ class ExecutionLoggingService:
 
     @staticmethod
     def _read_parameters_text(file_path):
-        parameters_text = ''
-        correct_format = False
         with open(file_path, 'r', encoding=ENCODING) as f:
+            parameters_text = []
             for line in f:
-                if _rstrip_once(line, '\n') == OUTPUT_STARTED_MARKER:
-                    correct_format = True
-                    break
-                parameters_text += line
-        return correct_format, parameters_text
+                if line.strip() == OUTPUT_STARTED_MARKER:
+                    return True, ''.join(parameters_text)
+                parameters_text.append(line)
+        return False, ''.join(parameters_text)
 
     def _renew_files_cache(self):
         cache = self._ids_to_file_map
 
-        obsolete_ids = []
-        for id, file in cache.items():
-            path = os.path.join(self._output_folder, file)
-            if not os.path.exists(path):
-                obsolete_ids.append(id)
-
+        obsolete_ids = [id for id, file in cache.items() if not os.path.exists(os.path.join(self._output_folder, file))]
         for obsolete_id in obsolete_ids:
             LOGGER.info('Logs for execution #' + obsolete_id + ' were deleted')
             del cache[obsolete_id]
 
         for file in os.listdir(self._output_folder):
-            if not file.lower().endswith('.log'):
-                continue
-
-            if file in self._visited_files:
-                continue
-
-            self._visited_files.add(file)
-
-            entry = self._extract_history_entry(file)
-            if entry is None:
-                continue
-
-            cache[entry.id] = file
+            if file.lower().endswith('.log') and file not in self._visited_files:
+                self._visited_files.add(file)
+                entry = self._extract_history_entry(file)
+                if entry:
+                    cache[entry.id] = file
 
     @staticmethod
     def _create_log_identifier(audit_name, script_name, start_time):
         audit_name = file_utils.to_filename(audit_name)
-
         date_string = ms_to_datetime(start_time).strftime("%y%m%d_%H%M%S")
-
         script_name = script_name.replace(" ", "_")
-        log_identifier = script_name + "_" + audit_name + "_" + date_string
-        return log_identifier
+        return f"{script_name}_{audit_name}_{date_string}"
 
     @staticmethod
     def _parse_history_parameters(parameters_text):
-        current_value = None
-        current_key = None
-
         parameters = {}
         for line in parameters_text.splitlines(keepends=True):
             match = re.fullmatch(r'([\w_]+):(.*\r?\n)', line)
-            if not match:
-                current_value += line
-                continue
-
-            if current_key is not None:
-                parameters[current_key] = _rstrip_once(current_value, '\n')
-
-            current_key = match.group(1)
-            current_value = match.group(2)
-
-        if current_key is not None:
-            parameters[current_key] = _rstrip_once(current_value, '\n')
-
+            if match:
+                parameters[match.group(1)] = match.group(2).strip()
+            else:
+                parameters[current_key] += line
         return parameters
 
     @staticmethod
@@ -331,25 +301,13 @@ class ExecutionLoggingService:
 
     @staticmethod
     def _write_post_execution_info(log_file_path, exit_code):
-        file_content = file_utils.read_file(log_file_path, keep_newlines=True)
+        file_content = file_utils.read_file(log_file_path, keep_newlines=True).strip()
+        file_parts = file_content.split(OUTPUT_STARTED_MARKER.strip(), 1)
 
-        # 去除多余空白和换行符
-        file_content = file_content.strip()
-        expected_marker = OUTPUT_STARTED_MARKER.strip()
-
-        # 尝试拆分文件内容
-        file_parts = file_content.split(expected_marker, 1)
-
-        # 打印拆分结果用于调试
-        print(f"File parts after split: {file_parts}")
-
-        # 检查拆分结果的长度
         if len(file_parts) < 2:
             raise ValueError(f"File content does not contain expected marker: {OUTPUT_STARTED_MARKER}")
 
-        parameters_text = file_parts[0].strip()
-        parameters_text += f'\nexit_code:{exit_code}\n'
-
+        parameters_text = f'{file_parts[0].strip()}\nexit_code:{exit_code}\n'
         new_content = f"{parameters_text}\n{OUTPUT_STARTED_MARKER}\n{file_parts[1].strip()}"
         file_utils.write_file(log_file_path, new_content.encode(ENCODING), byte_content=True)
 
@@ -405,19 +363,13 @@ class LogNameCreator:
         if not filename.lower().endswith('.log'):
             filename += '.log'
 
-        filename = filename.replace(" ", "_").replace("/", "_")
-
-        return filename
+        return filename.replace(" ", "_").replace("/", "_")
 
     def _resolve_date_format(self, custom_logging_config: Optional[LoggingConfig]):
-        if custom_logging_config and custom_logging_config.date_format:
-            return custom_logging_config.date_format
-        return self._date_format
+        return custom_logging_config.date_format if custom_logging_config and custom_logging_config.date_format else self._date_format
 
     def _resolve_filename_template(self, custom_logging_config: Optional[LoggingConfig]):
-        if custom_logging_config and custom_logging_config.filename_pattern:
-            return Template(custom_logging_config.filename_pattern)
-        return self._filename_template
+        return Template(custom_logging_config.filename_pattern) if custom_logging_config and custom_logging_config.filename_pattern else self._filename_template
 
 
 class ExecutionLoggingController:
@@ -457,17 +409,8 @@ class ExecutionLoggingController:
 
 
 def _rstrip_once(text, char):
-    if text.endswith(char):
-        text = text[:-1]
-
-    return text
+    return text[:-1] if text.endswith(char) else text
 
 
 def _lstrip_any_linesep(text):
-    if text.startswith('\r\n'):
-        return text[2:]
-
-    if text.startswith(os.linesep):
-        return text[len(os.linesep):]
-
-    return text
+    return text[2:] if text.startswith('\r\n') else text[len(os.linesep):] if text.startswith(os.linesep) else text
