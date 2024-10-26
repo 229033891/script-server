@@ -361,3 +361,44 @@ ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
 2024-10-26 16:36:24,845 [tornado.access.INFO] 200 POST /executions/cleanup/8 (127.0.0.1) 0.00ms
 2024-10-26 16:38:42,619 [root.INFO] Starting Script Server (custom version)
 2024-10-26 16:38:42,635 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:43:52,051 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:43:52,055 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:43:57,461 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 16:43:57,461 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.00ms
+2024-10-26 16:43:57,605 [web_server.WARNING] 401 GET /auth/info: user is not authenticated
+2024-10-26 16:43:57,605 [tornado.general.WARNING] 401 GET /auth/info (127.0.0.1): Not authenticated
+2024-10-26 16:43:57,606 [tornado.access.WARNING] 401 GET /auth/info (127.0.0.1) 2.00ms
+2024-10-26 16:43:57,607 [web_server.WARNING] 401 GET /conf: user is not authenticated
+2024-10-26 16:43:57,607 [tornado.general.WARNING] 401 GET /conf (127.0.0.1): Not authenticated
+2024-10-26 16:43:57,607 [tornado.access.WARNING] 401 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 16:43:57,609 [web_server.WARNING] 401 GET /scripts: user is not authenticated
+2024-10-26 16:43:57,609 [tornado.general.WARNING] 401 GET /scripts (127.0.0.1): Not authenticated
+2024-10-26 16:43:57,610 [tornado.access.WARNING] 401 GET /scripts (127.0.0.1) 1.00ms
+2024-10-26 16:43:57,610 [web_server.WARNING] 401 GET /executions/active: user is not authenticated
+2024-10-26 16:43:57,610 [tornado.general.WARNING] 401 GET /executions/active (127.0.0.1): Not authenticated
+2024-10-26 16:43:57,611 [tornado.access.WARNING] 401 GET /executions/active (127.0.0.1) 1.00ms
+2024-10-26 16:44:03,437 [tornado.access.INFO] 302 GET /index.html (127.0.0.1) 8.25ms
+2024-10-26 16:44:03,503 [tornado.access.INFO] 304 GET /login.html?next=%2Findex.html (127.0.0.1) 61.83ms
+2024-10-26 16:44:03,519 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 2.53ms
+2024-10-26 16:44:03,607 [tornado.access.INFO] 304 GET /auth/config (127.0.0.1) 0.00ms
+2024-10-26 16:44:05,155 [script_server.tornado_auth.INFO] Trying to authenticate user
+2024-10-26 16:44:05,163 [tornado.access.WARNING] 401 POST /login (127.0.0.1) 8.11ms
+2024-10-26 16:44:10,501 [script_server.tornado_auth.INFO] Trying to authenticate user
+2024-10-26 16:44:10,501 [script_server.tornado_auth.INFO] Authenticated user admin
+2024-10-26 16:44:10,502 [tornado.access.INFO] 200 POST /login (127.0.0.1) 2.60ms
+2024-10-26 16:44:10,521 [tornado.access.INFO] 200 GET /index.html (127.0.0.1) 10.67ms
+2024-10-26 16:44:10,543 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 0.00ms
+2024-10-26 16:44:10,608 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 6.58ms
+2024-10-26 16:44:10,621 [tornado.access.INFO] 200 GET /scripts (127.0.0.1) 12.64ms
+2024-10-26 16:44:10,621 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 12.64ms
+2024-10-26 16:44:10,622 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.24ms
+2024-10-26 16:44:14,163 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.20ms
+2024-10-26 16:44:15,787 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 16:44:15,788 [script_server.execution_service.INFO] Calling script #9: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:44:15,797 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 11.91ms
+2024-10-26 16:44:15,802 [tornado.access.INFO] 101 GET /executions/io/9 (127.0.0.1) 0.00ms
+2024-10-26 16:44:46,147 [web_server.INFO] admin disconnected
+2024-10-26 16:44:46,155 [tornado.access.INFO] 200 POST /executions/cleanup/9 (127.0.0.1) 4.33ms
+2024-10-26 16:47:22,971 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:47:22,988 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:47:24,119 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
