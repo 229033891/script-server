@@ -25,24 +25,8 @@ from utils.tool_utils import InvalidWebBuildException
 from web import server
 from web.client import tornado_client_config
 
-parser = argparse.ArgumentParser(description='Launch script-server.')
-parser.add_argument('-d', '--config-dir', default='conf')
-parser.add_argument('-f', '--config-file', default='conf.json')
-parser.add_argument('-l', '--log-folder', default='logs')
-parser.add_argument('-t', '--tmp-folder', default='temp')
-args = vars(parser.parse_args())
-
-TEMP_FOLDER = args['tmp_folder']
-LOG_FOLDER = args['log_folder']
-
-CONFIG_FOLDER = args['config_dir']
-if os.path.isabs(args['config_file']):
-    SERVER_CONF_PATH = args['config_file']
-else:
-    SERVER_CONF_PATH = os.path.join(CONFIG_FOLDER, args['config_file'])
-
-LOGGER = logging.getLogger('main')
-
+# 设置全局编码为 UTF-8
+os.environ['PYTHONIOENCODING'] = 'utf-8'
 
 def get_secret(secret_file):
     if os.path.exists(secret_file):
@@ -54,8 +38,29 @@ def get_secret(secret_file):
     file_utils.write_file(secret_file, secret, byte_content=True)
     return secret
 
+def prepare_directory(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
 def main():
+    parser = argparse.ArgumentParser(description='Launch script-server.')
+    parser.add_argument('-d', '--config-dir', default='conf')
+    parser.add_argument('-f', '--config-file', default='conf.json')
+    parser.add_argument('-l', '--log-folder', default='logs')
+    parser.add_argument('-t', '--tmp-folder', default='temp')
+    args = vars(parser.parse_args())
+
+    TEMP_FOLDER = args['tmp_folder']
+    LOG_FOLDER = args['log_folder']
+    CONFIG_FOLDER = args['config_dir']
+  
+    if os.path.isabs(args['config_file']):
+        SERVER_CONF_PATH = args['config_file']
+    else:
+        SERVER_CONF_PATH = os.path.join(CONFIG_FOLDER, args['config_file'])
+
+    LOGGER = logging.getLogger('main')
+
     project_path = os.getcwd()
 
     try:
@@ -65,28 +70,30 @@ def main():
         sys.exit(-1)
 
     logging_conf_file = os.path.join(CONFIG_FOLDER, 'logging.json')
-    with open(logging_conf_file, 'rt') as f:
-        log_config = json.load(f)
-        handlers = log_config.get('handlers')
-        if handlers:
-            file_handler = handlers.get('file')
-            if file_handler:
-                file_handler['filename'] = os.path.join(LOG_FOLDER, 'server.log')
+    try:
+        with open(logging_conf_file, 'rt') as f:
+            log_config = json.load(f)
+            handlers = log_config.get('handlers')
+            if handlers:
+                file_handler = handlers.get('file')
+                if file_handler:
+                    file_handler['filename'] = os.path.join(LOG_FOLDER, 'server.log')
 
-        file_utils.prepare_folder(LOG_FOLDER)
-
-        logging.config.dictConfig(log_config)
+            prepare_directory(LOG_FOLDER)
+            logging.config.dictConfig(log_config)
+    except Exception as e:
+        print(f"Error loading logging configuration: {e}")
+        sys.exit(-1)
 
     server_version = tool_utils.get_server_version(project_path)
     logging.info('Starting Script Server' + (', v' + server_version if server_version else ' (custom version)'))
 
-    file_utils.prepare_folder(CONFIG_FOLDER)
-    file_utils.prepare_folder(TEMP_FOLDER)
+    prepare_directory(CONFIG_FOLDER)
+    prepare_directory(TEMP_FOLDER)
 
     migrations.migrate.migrate(TEMP_FOLDER, CONFIG_FOLDER, SERVER_CONF_PATH, LOG_FOLDER)
 
     server_config = server_conf.from_json(SERVER_CONF_PATH, TEMP_FOLDER)
-
     secret = get_secret(server_config.secret_storage_file)
 
     tornado_client_config.initialize()
@@ -107,8 +114,6 @@ def main():
         authorizer, CONFIG_FOLDER, server_config.groups_config.group_by_folders, process_invoker)
 
     alerts_service = AlertsService(server_config.alerts_config)
-    alerts_service = alerts_service
-
     execution_logs_path = os.path.join(LOG_FOLDER, 'processes')
     log_name_creator = LogNameCreator(
         server_config.logging_config.filename_pattern,
@@ -133,7 +138,6 @@ def main():
 
     executions_callback_feature = ExecutionsCallbackFeature(
         execution_service, server_config.callbacks_config, process_invoker)
-
     executions_callback_feature.start()
 
     schedule_service = ScheduleService(config_service, execution_service, CONFIG_FOLDER)
@@ -152,7 +156,6 @@ def main():
         secret,
         server_version,
         CONFIG_FOLDER)
-
 
 if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
