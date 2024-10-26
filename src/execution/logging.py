@@ -15,6 +15,11 @@ from utils import file_utils, audit_utils
 from utils.audit_utils import get_audit_name
 from utils.collection_utils import get_first_existing
 from utils.date_utils import get_current_millis, ms_to_datetime
+from datetime import datetime, timezone
+
+ 
+print(int(datetime.now().timestamp() * 1000))
+print(datetime.now())
 
 ENCODING = 'utf8'
 
@@ -137,8 +142,7 @@ class ExecutionLoggingService:
         script_name = str(script_config.name)
 
         if start_time_millis is None:
-            adjusted_time = datetime.utcnow() + timedelta(hours=8)
-            start_time_millis = int(adjusted_time.timestamp() * 1000)
+            start_time_millis = int(datetime.now().timestamp() * 1000)
 
         log_filename = self._log_name_creator.create_filename(
             execution_id,
@@ -156,7 +160,7 @@ class ExecutionLoggingService:
         output_logger.write_line('user_name:' + user_name)
         output_logger.write_line('user_id:' + user_id)
         output_logger.write_line('script:' + script_name)
-        output_logger.write_line('start_time:' + str(start_time_millis))
+        output_logger.write_line('start_time:' + str(datetime.now()))
         output_logger.write_line('command:' + command)
         output_logger.write_line('output_format:' + script_config.output_format)
         output_logger.write_line(OUTPUT_STARTED_MARKER)
