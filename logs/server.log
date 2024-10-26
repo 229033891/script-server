@@ -1,0 +1,361 @@
+2024-10-26 15:16:56,904 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:16:56,905 [migrations.INFO] Applying migration add_execution_info_to_log_files
+2024-10-26 15:16:56,905 [migrations.INFO] Applying migration introduce_access_config
+2024-10-26 15:16:56,914 [migrations.INFO] Applying migration migrate_bash_formatting_to_output_format
+2024-10-26 15:16:56,915 [migrations.INFO] Applying migration add_user_id_to_log_files
+2024-10-26 15:16:56,915 [migrations.INFO] Applying migration migrate_repeat_param_and_same_arg_param
+2024-10-26 15:16:56,916 [migrations.INFO] Applying migration migrate_output_files_parameters_substitution
+2024-10-26 15:18:08,826 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:18:08,841 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 15:20:47,725 [tornado.general.WARNING] SSL Error on 728 ('127.0.0.1', 61563): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:47,730 [tornado.general.WARNING] SSL Error on 476 ('127.0.0.1', 61566): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:47,733 [tornado.general.WARNING] SSL Error on 172 ('127.0.0.1', 61564): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:52,959 [tornado.general.WARNING] SSL Error on 172 ('127.0.0.1', 61574): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:52,959 [tornado.general.WARNING] SSL Error on 432 ('127.0.0.1', 61575): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:53,221 [tornado.general.WARNING] SSL Error on 432 ('127.0.0.1', 61577): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:53,286 [tornado.access.INFO] 302 GET /index.html (127.0.0.1) 2.08ms
+2024-10-26 15:20:53,351 [tornado.access.INFO] 200 GET /login.html?next=%2Findex.html (127.0.0.1) 62.56ms
+2024-10-26 15:20:53,373 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 15:20:53,377 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 4.00ms
+2024-10-26 15:20:53,392 [tornado.access.INFO] 200 GET /css/chunk-login-vendors.c0ff70ff.css (127.0.0.1) 12.85ms
+2024-10-26 15:20:53,402 [tornado.access.INFO] 200 GET /css/login.52673ae7.css (127.0.0.1) 9.09ms
+2024-10-26 15:20:53,488 [tornado.access.INFO] 200 GET /js/chunk-login-vendors.097ee733.js (127.0.0.1) 85.20ms
+2024-10-26 15:20:53,536 [tornado.access.INFO] 200 GET /js/login.596b0cf9.js (127.0.0.1) 46.52ms
+2024-10-26 15:20:53,544 [tornado.access.INFO] 200 GET /img/titleBackground_login.ae3fb646.jpg (127.0.0.1) 7.28ms
+2024-10-26 15:20:53,588 [tornado.access.INFO] 200 GET /auth/config (127.0.0.1) 1.00ms
+2024-10-26 15:20:53,610 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 7.70ms
+2024-10-26 15:20:53,687 [tornado.general.WARNING] SSL Error on 744 ('127.0.0.1', 61590): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:53,688 [tornado.general.WARNING] SSL Error on 468 ('127.0.0.1', 61592): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:53,688 [tornado.general.WARNING] SSL Error on 432 ('127.0.0.1', 61589): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:20:53,689 [tornado.general.WARNING] SSL Error on 616 ('127.0.0.1', 61591): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:06,409 [script_server.tornado_auth.INFO] Trying to authenticate user
+2024-10-26 15:21:06,410 [script_server.tornado_auth.INFO] Authenticated user admin
+2024-10-26 15:21:06,410 [tornado.access.INFO] 200 POST /login (127.0.0.1) 1.42ms
+2024-10-26 15:21:06,446 [tornado.access.INFO] 200 GET /index.html (127.0.0.1) 14.50ms
+2024-10-26 15:21:06,516 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.02ms
+2024-10-26 15:21:06,532 [tornado.access.INFO] 200 GET /css/chunk-index-vendors.f4386b5c.css (127.0.0.1) 13.97ms
+2024-10-26 15:21:06,650 [tornado.access.INFO] 200 GET /js/chunk-index-vendors.22fcd889.js (127.0.0.1) 115.87ms
+2024-10-26 15:21:06,661 [tornado.access.INFO] 200 GET /css/index.0a3f4564.css (127.0.0.1) 11.48ms
+2024-10-26 15:21:06,711 [tornado.access.INFO] 200 GET /js/index.ae235fe7.js (127.0.0.1) 49.46ms
+2024-10-26 15:21:06,768 [tornado.access.INFO] 200 GET /auth/info (127.0.0.1) 7.47ms
+2024-10-26 15:21:06,769 [tornado.access.INFO] 200 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 15:21:06,771 [tornado.access.INFO] 200 GET /scripts (127.0.0.1) 1.01ms
+2024-10-26 15:21:06,772 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 1.05ms
+2024-10-26 15:21:06,779 [tornado.access.INFO] 200 GET /img/titleBackground_small.8d99a14e.jpg (127.0.0.1) 6.71ms
+2024-10-26 15:21:06,782 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 1.17ms
+2024-10-26 15:21:06,801 [tornado.access.INFO] 200 GET /fonts/MaterialIcons-Regular.570eb838.woff2 (127.0.0.1) 7.73ms
+2024-10-26 15:21:06,824 [tornado.general.WARNING] SSL Error on 896 ('127.0.0.1', 61607): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:06,824 [tornado.general.WARNING] SSL Error on 912 ('127.0.0.1', 61609): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:06,824 [tornado.general.WARNING] SSL Error on 928 ('127.0.0.1', 61608): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:07,076 [tornado.general.WARNING] SSL Error on 896 ('127.0.0.1', 61612): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:10,756 [tornado.access.INFO] 200 GET /admin.html (127.0.0.1) 10.21ms
+2024-10-26 15:21:10,773 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.01ms
+2024-10-26 15:21:10,788 [tornado.access.INFO] 200 GET /css/admin.10defd3a.css (127.0.0.1) 13.24ms
+2024-10-26 15:21:10,803 [tornado.access.INFO] 200 GET /css/chunk-admin-vendors.3b6713d8.css (127.0.0.1) 13.01ms
+2024-10-26 15:21:10,992 [tornado.access.INFO] 200 GET /js/chunk-admin-vendors.7da476c4.js (127.0.0.1) 187.95ms
+2024-10-26 15:21:11,047 [tornado.access.INFO] 200 GET /js/admin.9b062b49.js (127.0.0.1) 243.70ms
+2024-10-26 15:21:11,090 [tornado.general.WARNING] SSL Error on 972 ('127.0.0.1', 61618): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:11,090 [tornado.general.WARNING] SSL Error on 968 ('127.0.0.1', 61617): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:11,090 [tornado.general.WARNING] SSL Error on 976 ('127.0.0.1', 61619): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:11,116 [tornado.access.INFO] 200 GET /history/execution_log/short (127.0.0.1) 1.00ms
+2024-10-26 15:21:11,122 [tornado.access.INFO] 200 GET /auth/info (127.0.0.1) 1.08ms
+2024-10-26 15:21:11,135 [tornado.access.INFO] 200 GET /fonts/roboto-latin-500.020c97dc.woff2 (127.0.0.1) 12.67ms
+2024-10-26 15:21:11,143 [tornado.access.INFO] 200 GET /fonts/roboto-latin-700.2735a3a6.woff2 (127.0.0.1) 6.99ms
+2024-10-26 15:21:11,152 [tornado.access.INFO] 200 GET /fonts/roboto-latin-400.479970ff.woff2 (127.0.0.1) 7.11ms
+2024-10-26 15:21:11,429 [tornado.general.WARNING] SSL Error on 936 ('127.0.0.1', 61625): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:11,429 [tornado.general.WARNING] SSL Error on 980 ('127.0.0.1', 61626): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:21:12,058 [tornado.access.INFO] 200 GET /scripts?mode=edit (127.0.0.1) 0.99ms
+2024-10-26 15:21:44,883 [tornado.access.INFO] 200 GET /966a0905960f7cf236a398b68d3a4c6c.js (127.0.0.1) 32.06ms
+2024-10-26 15:21:58,162 [config_service.INFO] Creating new script config "menu" in conf\runners\menu.json
+2024-10-26 15:21:58,163 [tornado.access.INFO] 200 POST /admin/scripts (127.0.0.1) 3.32ms
+2024-10-26 15:21:58,192 [tornado.access.INFO] 200 GET /admin/scripts/menu (127.0.0.1) 10.79ms
+2024-10-26 15:22:00,881 [tornado.access.INFO] 200 GET /index.html (127.0.0.1) 1.63ms
+2024-10-26 15:22:00,894 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 0.00ms
+2024-10-26 15:22:00,901 [tornado.access.INFO] 304 GET /css/chunk-index-vendors.f4386b5c.css (127.0.0.1) 1.26ms
+2024-10-26 15:22:00,904 [tornado.access.INFO] 304 GET /css/index.0a3f4564.css (127.0.0.1) 2.38ms
+2024-10-26 15:22:00,905 [tornado.access.INFO] 304 GET /js/chunk-index-vendors.22fcd889.js (127.0.0.1) 1.27ms
+2024-10-26 15:22:00,907 [tornado.access.INFO] 304 GET /js/index.ae235fe7.js (127.0.0.1) 1.03ms
+2024-10-26 15:22:01,008 [tornado.access.INFO] 304 GET /favicon.ico (127.0.0.1) 1.00ms
+2024-10-26 15:22:01,030 [tornado.access.INFO] 200 GET /auth/info (127.0.0.1) 4.22ms
+2024-10-26 15:22:01,031 [tornado.access.INFO] 200 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 15:22:01,033 [tornado.access.INFO] 200 GET /scripts (127.0.0.1) 1.29ms
+2024-10-26 15:22:01,034 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 15:22:01,037 [tornado.access.INFO] 304 GET /img/titleBackground_small.8d99a14e.jpg (127.0.0.1) 1.41ms
+2024-10-26 15:22:01,213 [tornado.general.WARNING] SSL Error on 972 ('127.0.0.1', 61691): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:22:01,213 [tornado.general.WARNING] SSL Error on 932 ('127.0.0.1', 61690): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:22:01,214 [tornado.general.WARNING] SSL Error on 212 ('127.0.0.1', 61689): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:22:01,335 [tornado.general.WARNING] SSL Error on 896 ('127.0.0.1', 61692): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:22:04,694 [tornado.general.WARNING] SSL Error on 464 ('127.0.0.1', 61696): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:22:05,009 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 15:22:05,566 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'K'}
+2024-10-26 15:22:05,566 [script_server.execution_service.INFO] Calling script #1: D:\script-server\conf\scripts\menu.py
+2024-10-26 15:22:05,576 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.31ms
+2024-10-26 15:22:05,894 [tornado.general.WARNING] SSL Error on 748 ('127.0.0.1', 61701): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:22:06,199 [tornado.access.INFO] 101 GET /executions/io/1 (127.0.0.1) 0.00ms
+2024-10-26 15:22:08,488 [web_server.INFO] admin disconnected
+2024-10-26 15:22:08,500 [tornado.access.INFO] 200 POST /executions/cleanup/1 (127.0.0.1) 3.00ms
+2024-10-26 15:22:11,184 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'K'}
+2024-10-26 15:22:11,184 [script_server.execution_service.INFO] Calling script #2: D:\script-server\conf\scripts\menu.py
+2024-10-26 15:22:11,190 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 8.56ms
+2024-10-26 15:22:11,511 [tornado.general.WARNING] SSL Error on 976 ('127.0.0.1', 61714): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:22:11,828 [tornado.access.INFO] 101 GET /executions/io/2 (127.0.0.1) 0.00ms
+2024-10-26 15:22:44,146 [web_server.INFO] admin disconnected
+2024-10-26 15:22:44,154 [tornado.access.INFO] 200 POST /executions/cleanup/2 (127.0.0.1) 2.28ms
+2024-10-26 15:25:36,201 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:25:36,205 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 15:29:13,052 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:29:13,057 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 15:29:13,069 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:29:13,078 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:29:13,079 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:29:13,080 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:30:05,119 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:30:05,124 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 15:30:05,136 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:30:05,136 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:30:05,136 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:30:05,136 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 335, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:30:46,459 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:30:46,464 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 15:30:46,476 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:30:46,477 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:30:46,477 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:30:46,478 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:42:02,428 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:42:02,432 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 15:42:02,445 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:42:02,446 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:42:02,446 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:05.576377
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:05.576377'
+2024-10-26 15:42:02,447 [script_server.execution.logging.ERROR] Invalid start time: 2024-10-26 15:22:11.189398
+Traceback (most recent call last):
+  File "D:\script-server\src\execution\logging.py", line 336, in _parameters_to_entry
+    entry.start_time = ms_to_datetime(int(start_time))
+                                      ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
+2024-10-26 15:45:03,267 [root.INFO] Starting Script Server (custom version)
+2024-10-26 15:45:03,273 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 15:45:14,861 [tornado.general.WARNING] SSL Error on 468 ('127.0.0.1', 62250): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:14,861 [tornado.general.WARNING] SSL Error on 412 ('127.0.0.1', 62251): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:15,122 [tornado.general.WARNING] SSL Error on 452 ('127.0.0.1', 62253): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:15,192 [tornado.access.INFO] 200 GET /index.html (127.0.0.1) 20.26ms
+2024-10-26 15:45:15,218 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 15:45:15,218 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.30ms
+2024-10-26 15:45:15,225 [tornado.access.INFO] 200 GET /css/chunk-index-vendors.f4386b5c.css (127.0.0.1) 5.44ms
+2024-10-26 15:45:15,233 [tornado.access.INFO] 200 GET /css/index.0a3f4564.css (127.0.0.1) 4.00ms
+2024-10-26 15:45:15,258 [tornado.access.INFO] 200 GET /js/chunk-index-vendors.22fcd889.js (127.0.0.1) 24.40ms
+2024-10-26 15:45:15,267 [tornado.access.INFO] 200 GET /js/index.ae235fe7.js (127.0.0.1) 8.24ms
+2024-10-26 15:45:15,351 [tornado.access.INFO] 200 GET /auth/info (127.0.0.1) 4.21ms
+2024-10-26 15:45:15,354 [tornado.access.INFO] 200 GET /conf (127.0.0.1) 1.30ms
+2024-10-26 15:45:15,356 [tornado.access.INFO] 200 GET /scripts (127.0.0.1) 2.57ms
+2024-10-26 15:45:15,357 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 15:45:15,360 [tornado.access.INFO] 200 GET /img/titleBackground_small.8d99a14e.jpg (127.0.0.1) 1.21ms
+2024-10-26 15:45:15,362 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 1.01ms
+2024-10-26 15:45:15,402 [tornado.access.INFO] 200 GET /fonts/MaterialIcons-Regular.570eb838.woff2 (127.0.0.1) 1.00ms
+2024-10-26 15:45:15,435 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 1.01ms
+2024-10-26 15:45:15,439 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 3.11ms
+2024-10-26 15:45:15,527 [tornado.general.WARNING] SSL Error on 760 ('127.0.0.1', 62268): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:15,527 [tornado.general.WARNING] SSL Error on 504 ('127.0.0.1', 62267): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:15,529 [tornado.general.WARNING] SSL Error on 472 ('127.0.0.1', 62269): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:15,529 [tornado.general.WARNING] SSL Error on 92 ('127.0.0.1', 62270): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:15,703 [tornado.general.WARNING] SSL Error on 848 ('127.0.0.1', 62272): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:16,010 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.63ms
+2024-10-26 15:45:22,181 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'K'}
+2024-10-26 15:45:22,181 [script_server.execution_service.INFO] Calling script #3: D:\script-server\conf\scripts\menu.py
+2024-10-26 15:45:22,191 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 15.04ms
+2024-10-26 15:45:22,201 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 1.01ms
+2024-10-26 15:45:22,507 [tornado.general.WARNING] SSL Error on 944 ('127.0.0.1', 62277): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 15:45:22,824 [tornado.access.INFO] 101 GET /executions/io/3 (127.0.0.1) 0.00ms
+2024-10-26 15:45:52,428 [web_server.INFO] admin disconnected
+2024-10-26 15:45:52,439 [tornado.access.INFO] 200 POST /executions/cleanup/3 (127.0.0.1) 11.01ms
+2024-10-26 15:45:52,443 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 3.52ms
+2024-10-26 15:45:52,449 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 2.05ms
+2024-10-26 16:16:44,441 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:16:44,445 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:16:58,116 [tornado.general.WARNING] SSL Error on 844 ('127.0.0.1', 63348): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:16:59,822 [tornado.general.WARNING] SSL Error on 844 ('127.0.0.1', 63356): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:00,074 [tornado.general.WARNING] SSL Error on 844 ('127.0.0.1', 63358): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:00,141 [tornado.general.WARNING] SSL Error on 844 ('127.0.0.1', 63360): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:00,415 [tornado.access.INFO] 200 GET /index.html (127.0.0.1) 29.33ms
+2024-10-26 16:17:00,447 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 16:17:00,448 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.60ms
+2024-10-26 16:17:00,454 [tornado.access.INFO] 200 GET /css/chunk-index-vendors.f4386b5c.css (127.0.0.1) 5.13ms
+2024-10-26 16:17:00,479 [tornado.access.INFO] 200 GET /js/chunk-index-vendors.22fcd889.js (127.0.0.1) 23.90ms
+2024-10-26 16:17:00,483 [tornado.access.INFO] 200 GET /css/index.0a3f4564.css (127.0.0.1) 3.03ms
+2024-10-26 16:17:00,490 [tornado.access.INFO] 200 GET /js/index.ae235fe7.js (127.0.0.1) 6.45ms
+2024-10-26 16:17:00,723 [tornado.access.INFO] 200 GET /auth/info (127.0.0.1) 132.30ms
+2024-10-26 16:17:00,873 [tornado.access.INFO] 200 GET /scripts (127.0.0.1) 148.88ms
+2024-10-26 16:17:00,874 [tornado.access.INFO] 200 GET /conf (127.0.0.1) 149.43ms
+2024-10-26 16:17:00,879 [tornado.access.INFO] 200 GET /fonts/MaterialIcons-Regular.570eb838.woff2 (127.0.0.1) 4.11ms
+2024-10-26 16:17:00,880 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 4.64ms
+2024-10-26 16:17:00,880 [tornado.general.WARNING] SSL Error on 440 ('127.0.0.1', 63374): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:00,881 [tornado.general.WARNING] SSL Error on 724 ('127.0.0.1', 63372): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:00,881 [tornado.general.WARNING] SSL Error on 464 ('127.0.0.1', 63373): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:00,884 [tornado.access.INFO] 200 GET /img/titleBackground_small.8d99a14e.jpg (127.0.0.1) 1.76ms
+2024-10-26 16:17:00,885 [tornado.access.INFO] 200 GET /favicon.ico (127.0.0.1) 2.77ms
+2024-10-26 16:17:00,900 [tornado.general.WARNING] SSL Error on 748 ('127.0.0.1', 63383): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:15,672 [tornado.general.WARNING] SSL Error on 748 ('127.0.0.1', 63398): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:15,990 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.81ms
+2024-10-26 16:17:17,027 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'K'}
+2024-10-26 16:17:17,029 [script_server.execution_service.INFO] Calling script #4: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:17:17,037 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 263.70ms
+2024-10-26 16:17:17,356 [tornado.general.WARNING] SSL Error on 968 ('127.0.0.1', 63402): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:17:17,674 [tornado.access.INFO] 101 GET /executions/io/4 (127.0.0.1) 1.00ms
+2024-10-26 16:17:47,401 [web_server.INFO] admin disconnected
+2024-10-26 16:17:47,544 [tornado.access.INFO] 200 POST /executions/cleanup/4 (127.0.0.1) 141.70ms
+2024-10-26 16:19:24,687 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'K'}
+2024-10-26 16:19:24,687 [script_server.execution_service.INFO] Calling script #5: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:19:24,687 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 269.35ms
+2024-10-26 16:19:25,005 [tornado.general.WARNING] SSL Error on 1052 ('127.0.0.1', 63455): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1000)
+2024-10-26 16:19:25,323 [tornado.access.INFO] 101 GET /executions/io/5 (127.0.0.1) 0.55ms
+2024-10-26 16:19:43,540 [web_server.INFO] admin disconnected
+2024-10-26 16:23:29,669 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 0.00ms
+2024-10-26 16:23:29,750 [web_server.WARNING] 401 GET /auth/info: user is not authenticated
+2024-10-26 16:23:29,751 [tornado.general.WARNING] 401 GET /auth/info (127.0.0.1): Not authenticated
+2024-10-26 16:23:29,751 [tornado.access.WARNING] 401 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 16:23:29,754 [web_server.WARNING] 401 GET /executions/active: user is not authenticated
+2024-10-26 16:23:29,754 [tornado.general.WARNING] 401 GET /executions/active (127.0.0.1): Not authenticated
+2024-10-26 16:23:29,754 [tornado.access.WARNING] 401 GET /executions/active (127.0.0.1) 1.25ms
+2024-10-26 16:23:29,754 [web_server.WARNING] 401 GET /conf: user is not authenticated
+2024-10-26 16:23:29,755 [tornado.general.WARNING] 401 GET /conf (127.0.0.1): Not authenticated
+2024-10-26 16:23:29,755 [tornado.access.WARNING] 401 GET /conf (127.0.0.1) 2.53ms
+2024-10-26 16:23:29,757 [web_server.WARNING] 401 GET /scripts: user is not authenticated
+2024-10-26 16:23:29,757 [tornado.general.WARNING] 401 GET /scripts (127.0.0.1): Not authenticated
+2024-10-26 16:23:29,757 [tornado.access.WARNING] 401 GET /scripts (127.0.0.1) 1.01ms
+2024-10-26 16:25:46,686 [tornado.access.INFO] 302 GET /index.html (127.0.0.1) 1.01ms
+2024-10-26 16:25:46,694 [tornado.access.INFO] 304 GET /login.html?next=%2Findex.html (127.0.0.1) 1.10ms
+2024-10-26 16:25:46,743 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 0.00ms
+2024-10-26 16:25:46,748 [tornado.access.INFO] 304 GET /css/chunk-login-vendors.c0ff70ff.css (127.0.0.1) 2.67ms
+2024-10-26 16:25:46,751 [tornado.access.INFO] 304 GET /css/login.52673ae7.css (127.0.0.1) 3.56ms
+2024-10-26 16:25:46,755 [tornado.access.INFO] 304 GET /js/login.596b0cf9.js (127.0.0.1) 6.90ms
+2024-10-26 16:25:46,757 [tornado.access.INFO] 304 GET /js/chunk-login-vendors.097ee733.js (127.0.0.1) 2.24ms
+2024-10-26 16:25:46,768 [tornado.access.INFO] 304 GET /img/titleBackground_login.ae3fb646.jpg (127.0.0.1) 2.42ms
+2024-10-26 16:25:46,838 [tornado.access.INFO] 304 GET /auth/config (127.0.0.1) 0.00ms
+2024-10-26 16:25:51,864 [script_server.tornado_auth.INFO] Trying to authenticate user
+2024-10-26 16:25:51,865 [tornado.access.WARNING] 401 POST /login (127.0.0.1) 1.11ms
+2024-10-26 16:25:56,692 [script_server.tornado_auth.INFO] Trying to authenticate user
+2024-10-26 16:25:56,694 [script_server.tornado_auth.INFO] Authenticated user admin
+2024-10-26 16:25:56,694 [tornado.access.INFO] 200 POST /login (127.0.0.1) 1.66ms
+2024-10-26 16:25:56,717 [tornado.access.INFO] 200 GET /index.html (127.0.0.1) 1.01ms
+2024-10-26 16:25:56,827 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 0.51ms
+2024-10-26 16:25:56,869 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 4.81ms
+2024-10-26 16:25:56,871 [tornado.access.INFO] 200 GET /scripts (127.0.0.1) 2.01ms
+2024-10-26 16:25:56,873 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 3.22ms
+2024-10-26 16:25:56,873 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 16:25:56,915 [tornado.access.INFO] 200 GET /executions/config/5 (127.0.0.1) 1.00ms
+2024-10-26 16:25:56,931 [tornado.access.INFO] 101 GET /executions/io/5 (127.0.0.1) 0.00ms
+2024-10-26 16:25:56,940 [web_server.INFO] admin disconnected
+2024-10-26 16:25:58,359 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.51ms
+2024-10-26 16:26:00,435 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 16:26:00,436 [script_server.execution_service.INFO] Calling script #6: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:26:00,440 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 8.40ms
+2024-10-26 16:26:00,446 [tornado.access.INFO] 101 GET /executions/io/6 (127.0.0.1) 0.00ms
+2024-10-26 16:26:49,077 [web_server.INFO] admin disconnected
+2024-10-26 16:26:49,101 [tornado.access.INFO] 200 POST /executions/cleanup/6 (127.0.0.1) 0.00ms
+2024-10-26 16:30:02,783 [web_server.INFO] Stopping server on interrupt
+2024-10-26 16:30:23,478 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:30:23,478 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:30:26,017 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 28.67ms
+2024-10-26 16:30:26,066 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 16:30:26,067 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.01ms
+2024-10-26 16:30:26,148 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 5.02ms
+2024-10-26 16:30:26,152 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 3.00ms
+2024-10-26 16:30:26,152 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 3.00ms
+2024-10-26 16:30:26,154 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 0.72ms
+2024-10-26 16:30:26,178 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.01ms
+2024-10-26 16:30:27,325 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 16:30:27,327 [script_server.execution_service.INFO] Calling script #7: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:30:27,337 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.94ms
+2024-10-26 16:30:27,343 [tornado.access.INFO] 101 GET /executions/io/7 (127.0.0.1) 0.00ms
+2024-10-26 16:30:57,580 [web_server.INFO] admin disconnected
+2024-10-26 16:30:57,588 [tornado.access.INFO] 200 POST /executions/cleanup/7 (127.0.0.1) 2.38ms
+2024-10-26 16:35:48,957 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:35:48,960 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:35:53,335 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 27.92ms
+2024-10-26 16:35:53,384 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 16:35:53,385 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 2.48ms
+2024-10-26 16:35:53,425 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 6.34ms
+2024-10-26 16:35:53,431 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 4.10ms
+2024-10-26 16:35:53,434 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 2.66ms
+2024-10-26 16:35:53,436 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.05ms
+2024-10-26 16:35:53,469 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.46ms
+2024-10-26 16:35:54,610 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 16:35:54,611 [script_server.execution_service.INFO] Calling script #8: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:35:54,621 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 15.02ms
+2024-10-26 16:35:54,628 [tornado.access.INFO] 101 GET /executions/io/8 (127.0.0.1) 1.01ms
+2024-10-26 16:36:24,845 [web_server.INFO] admin disconnected
+2024-10-26 16:36:24,845 [tornado.access.INFO] 200 POST /executions/cleanup/8 (127.0.0.1) 0.00ms
