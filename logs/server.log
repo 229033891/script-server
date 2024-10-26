@@ -402,3 +402,43 @@ ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
 2024-10-26 16:47:22,971 [root.INFO] Starting Script Server (custom version)
 2024-10-26 16:47:22,988 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
 2024-10-26 16:47:24,119 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 16:51:02,456 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:51:02,462 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:51:02,770 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 16:51:28,402 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:51:28,409 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:51:38,366 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 37.86ms
+2024-10-26 16:51:38,379 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 16:51:38,380 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.66ms
+2024-10-26 16:51:38,517 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 7.45ms
+2024-10-26 16:51:38,522 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 3.95ms
+2024-10-26 16:51:38,522 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 2.55ms
+2024-10-26 16:51:38,525 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.05ms
+2024-10-26 16:51:38,535 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 16:51:39,454 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 16:51:39,455 [script_server.execution_service.INFO] Calling script #10: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:51:39,462 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 11.43ms
+2024-10-26 16:51:39,470 [tornado.access.INFO] 101 GET /executions/io/10 (127.0.0.1) 1.29ms
+2024-10-26 16:52:09,705 [web_server.INFO] admin disconnected
+2024-10-26 16:52:09,713 [tornado.access.INFO] 200 POST /executions/cleanup/10 (127.0.0.1) 3.10ms
+2024-10-26 16:59:15,346 [root.INFO] Starting Script Server (custom version)
+2024-10-26 16:59:15,366 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 16:59:27,712 [tornado.general.ERROR] Could not open static file 'D:\\script-server\\conf\\theme\\theme.css'
+2024-10-26 16:59:27,713 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 1.52ms
+2024-10-26 16:59:27,832 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 5.15ms
+2024-10-26 16:59:27,836 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.88ms
+2024-10-26 16:59:27,837 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 3.09ms
+2024-10-26 16:59:27,845 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 8.12ms
+2024-10-26 16:59:29,580 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 16:59:30,443 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 16:59:30,444 [script_server.execution_service.INFO] Calling script #11: D:\script-server\conf\scripts\menu.py
+2024-10-26 16:59:30,453 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.77ms
+2024-10-26 16:59:30,460 [tornado.access.INFO] 101 GET /executions/io/11 (127.0.0.1) 1.82ms
+2024-10-26 17:00:00,683 [web_server.INFO] admin disconnected
+2024-10-26 17:00:00,690 [tornado.access.INFO] 200 POST /executions/cleanup/11 (127.0.0.1) 3.27ms
+2024-10-26 17:00:20,603 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 17:00:20,605 [script_server.execution_service.INFO] Calling script #12: D:\script-server\conf\scripts\menu.py
+2024-10-26 17:00:20,608 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 7.89ms
+2024-10-26 17:00:20,613 [tornado.access.INFO] 101 GET /executions/io/12 (127.0.0.1) 0.00ms
+2024-10-26 17:00:29,750 [web_server.INFO] admin disconnected
+2024-10-26 17:00:29,760 [tornado.access.INFO] 200 POST /executions/cleanup/12 (127.0.0.1) 6.00ms
