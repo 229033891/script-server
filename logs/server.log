@@ -461,3 +461,364 @@ ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
 2024-10-26 17:49:23,299 [root.INFO] Starting Script Server (custom version)
 2024-10-26 17:49:23,299 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
 2024-10-26 17:49:23,465 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 17:52:19,051 [root.INFO] Starting Script Server (custom version)
+2024-10-26 17:52:19,056 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 17:52:19,572 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 17:52:24,240 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 30.87ms
+2024-10-26 17:52:24,267 [tornado.access.INFO] 200 GET /theme/theme.css (127.0.0.1) 13.82ms
+2024-10-26 17:52:24,388 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:52:24,392 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 2.47ms
+2024-10-26 17:52:24,394 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.54ms
+2024-10-26 17:52:24,395 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 17:52:24,410 [tornado.access.INFO] 200 GET /theme/darkBackground_header.jpg (127.0.0.1) 7.20ms
+2024-10-26 17:52:24,418 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 17:52:26,477 [tornado.access.INFO] 200 GET /admin.html (127.0.0.1) 12.60ms
+2024-10-26 17:52:26,513 [tornado.access.INFO] 200 GET /css/admin.10defd3a.css (127.0.0.1) 10.61ms
+2024-10-26 17:52:26,525 [tornado.access.INFO] 200 GET /css/chunk-admin-vendors.3b6713d8.css (127.0.0.1) 10.89ms
+2024-10-26 17:52:26,590 [tornado.access.INFO] 200 GET /js/admin.9b062b49.js (127.0.0.1) 75.67ms
+2024-10-26 17:52:26,777 [tornado.access.INFO] 200 GET /js/chunk-admin-vendors.7da476c4.js (127.0.0.1) 262.56ms
+2024-10-26 17:52:26,851 [tornado.access.INFO] 200 GET /history/execution_log/short (127.0.0.1) 2.01ms
+2024-10-26 17:52:26,857 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.13ms
+2024-10-26 17:52:26,867 [tornado.access.INFO] 200 GET /fonts/roboto-latin-500.020c97dc.woff2 (127.0.0.1) 9.23ms
+2024-10-26 17:52:26,875 [tornado.access.INFO] 200 GET /fonts/roboto-latin-700.2735a3a6.woff2 (127.0.0.1) 7.21ms
+2024-10-26 17:52:28,451 [tornado.access.INFO] 200 GET /scripts?mode=edit (127.0.0.1) 2.45ms
+2024-10-26 17:52:29,623 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.22ms
+2024-10-26 17:52:29,624 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 17:52:29,627 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.33ms
+2024-10-26 17:52:29,627 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.99ms
+2024-10-26 17:52:33,661 [tornado.access.INFO] 304 GET /history/execution_log/short (127.0.0.1) 4.36ms
+2024-10-26 17:52:33,663 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 0.39ms
+2024-10-26 17:52:34,945 [tornado.access.INFO] 304 GET /scripts?mode=edit (127.0.0.1) 3.47ms
+2024-10-26 17:53:24,988 [root.INFO] Starting Script Server (custom version)
+2024-10-26 17:53:24,992 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 17:53:27,291 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 5.60ms
+2024-10-26 17:53:27,293 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 2.03ms
+2024-10-26 17:53:27,298 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.65ms
+2024-10-26 17:53:27,299 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 17:53:29,309 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 27.82ms
+2024-10-26 17:53:29,394 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:53:29,395 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 17:53:29,396 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.30ms
+2024-10-26 17:53:29,397 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.31ms
+2024-10-26 17:53:30,170 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.00ms
+2024-10-26 17:53:30,238 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:53:30,239 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 17:53:30,241 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.00ms
+2024-10-26 17:53:30,241 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.00ms
+2024-10-26 17:53:34,678 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.05ms
+2024-10-26 17:53:34,679 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.31ms
+2024-10-26 17:53:34,680 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.31ms
+2024-10-26 17:53:34,681 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 3.30ms
+2024-10-26 17:53:35,828 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 17:53:37,474 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 17:53:37,475 [script_server.execution_service.INFO] Calling script #2: D:\script-server\conf\scripts\menu.py
+2024-10-26 17:53:37,483 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 12.06ms
+2024-10-26 17:53:37,490 [tornado.access.INFO] 101 GET /executions/io/2 (127.0.0.1) 0.00ms
+2024-10-26 17:54:07,710 [web_server.INFO] admin disconnected
+2024-10-26 17:54:07,715 [tornado.access.INFO] 200 POST /executions/cleanup/2 (127.0.0.1) 2.27ms
+2024-10-26 17:55:09,870 [tornado.access.INFO] 200 GET /history/execution_log/short (127.0.0.1) 14.45ms
+2024-10-26 17:55:09,872 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:55:11,395 [tornado.access.INFO] 304 GET /scripts?mode=edit (127.0.0.1) 3.00ms
+2024-10-26 17:55:12,059 [tornado.access.INFO] 304 GET /history/execution_log/short (127.0.0.1) 2.47ms
+2024-10-26 17:55:13,063 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:55:13,067 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 17:55:13,068 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 17:55:13,070 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.27ms
+2024-10-26 17:55:14,361 [tornado.access.INFO] 304 GET /history/execution_log/short (127.0.0.1) 2.44ms
+2024-10-26 17:55:14,363 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:55:16,336 [tornado.access.INFO] 304 GET /scripts?mode=edit (127.0.0.1) 2.33ms
+2024-10-26 17:55:18,002 [tornado.access.INFO] 304 GET /history/execution_log/short (127.0.0.1) 2.04ms
+2024-10-26 17:55:19,239 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.39ms
+2024-10-26 17:55:19,242 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.11ms
+2024-10-26 17:55:19,242 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 2.11ms
+2024-10-26 17:55:19,244 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 4.12ms
+2024-10-26 17:56:48,362 [root.INFO] Starting Script Server (custom version)
+2024-10-26 17:56:48,372 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 17:56:51,280 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 25.15ms
+2024-10-26 17:56:51,365 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 5.01ms
+2024-10-26 17:56:51,370 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 3.00ms
+2024-10-26 17:56:51,371 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 17:56:51,372 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 17:56:51,953 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.00ms
+2024-10-26 17:56:52,037 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:56:52,038 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 17:56:52,040 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.56ms
+2024-10-26 17:56:52,041 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.01ms
+2024-10-26 17:56:52,500 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.01ms
+2024-10-26 17:56:52,573 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 0.57ms
+2024-10-26 17:56:52,574 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.21ms
+2024-10-26 17:56:52,574 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 17:56:52,576 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.32ms
+2024-10-26 17:56:52,967 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.07ms
+2024-10-26 17:56:53,040 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 0.00ms
+2024-10-26 17:56:53,040 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 17:56:53,042 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.00ms
+2024-10-26 17:56:53,043 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 17:56:54,038 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.07ms
+2024-10-26 17:56:54,110 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.45ms
+2024-10-26 17:56:54,111 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.16ms
+2024-10-26 17:56:54,113 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.00ms
+2024-10-26 17:56:54,113 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.00ms
+2024-10-26 17:56:55,785 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.06ms
+2024-10-26 17:56:57,088 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 17:56:57,089 [script_server.execution_service.INFO] Calling script #3: D:\script-server\conf\scripts\menu.py
+2024-10-26 17:56:57,103 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 18.10ms
+2024-10-26 17:56:57,111 [tornado.access.INFO] 101 GET /executions/io/3 (127.0.0.1) 1.21ms
+2024-10-26 17:57:05,647 [tornado.access.INFO] 200 POST /executions/stop/3 (127.0.0.1) 6.47ms
+2024-10-26 17:57:06,762 [script_server.tornado_auth.INFO] Logging out admin
+2024-10-26 17:57:06,762 [tornado.access.INFO] 200 POST /logout (127.0.0.1) 0.00ms
+2024-10-26 17:57:07,822 [tornado.access.INFO] 302 GET /index.html (127.0.0.1) 1.04ms
+2024-10-26 17:57:07,862 [tornado.access.INFO] 304 GET /login.html?next=%2Findex.html (127.0.0.1) 34.99ms
+2024-10-26 17:57:07,873 [web_server.INFO] admin disconnected
+2024-10-26 17:57:07,937 [tornado.access.INFO] 200 GET /theme/darkBackground_login.jpg (127.0.0.1) 1.84ms
+2024-10-26 17:57:07,968 [tornado.access.INFO] 304 GET /auth/config (127.0.0.1) 1.40ms
+2024-10-26 17:57:09,563 [script_server.tornado_auth.INFO] Trying to authenticate user
+2024-10-26 17:57:09,568 [tornado.access.WARNING] 401 POST /login (127.0.0.1) 5.06ms
+2024-10-26 17:57:12,397 [script_server.tornado_auth.INFO] Trying to authenticate user
+2024-10-26 17:57:12,399 [script_server.tornado_auth.INFO] Authenticated user admin
+2024-10-26 17:57:12,399 [tornado.access.INFO] 200 POST /login (127.0.0.1) 1.25ms
+2024-10-26 17:57:12,410 [tornado.access.INFO] 200 GET /index.html (127.0.0.1) 2.82ms
+2024-10-26 17:57:12,474 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 17:57:12,475 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 17:57:12,477 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.28ms
+2024-10-26 17:57:12,479 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 1.13ms
+2024-10-26 17:57:12,485 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 17:57:12,488 [tornado.access.INFO] 200 GET /executions/config/3 (127.0.0.1) 1.01ms
+2024-10-26 17:57:12,514 [tornado.access.INFO] 101 GET /executions/io/3 (127.0.0.1) 1.23ms
+2024-10-26 17:57:17,527 [web_server.INFO] admin disconnected
+2024-10-26 17:57:17,533 [tornado.access.INFO] 200 POST /executions/cleanup/3 (127.0.0.1) 1.00ms
+2024-10-26 17:57:20,363 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 17:57:20,369 [script_server.execution_service.INFO] Calling script #4: D:\script-server\conf\scripts\menu.py
+2024-10-26 17:57:20,374 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 18.39ms
+2024-10-26 17:57:20,400 [tornado.access.INFO] 101 GET /executions/io/4 (127.0.0.1) 0.00ms
+2024-10-26 17:58:01,466 [web_server.INFO] admin disconnected
+2024-10-26 17:58:01,481 [tornado.access.INFO] 200 POST /executions/cleanup/4 (127.0.0.1) 9.53ms
+2024-10-26 17:58:03,642 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 17:58:03,643 [script_server.execution_service.INFO] Calling script #5: D:\script-server\conf\scripts\menu.py
+2024-10-26 17:58:03,654 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 18.24ms
+2024-10-26 17:58:03,660 [tornado.access.INFO] 101 GET /executions/io/5 (127.0.0.1) 1.16ms
+2024-10-26 17:58:42,519 [web_server.INFO] admin disconnected
+2024-10-26 17:58:42,525 [tornado.access.INFO] 200 POST /executions/cleanup/5 (127.0.0.1) 5.32ms
+2024-10-26 17:59:03,940 [root.INFO] Starting Script Server (custom version)
+2024-10-26 17:59:03,943 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 17:59:04,131 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 2.13ms
+2024-10-26 17:59:08,100 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 29.08ms
+2024-10-26 17:59:08,244 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.47ms
+2024-10-26 17:59:08,244 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 17:59:08,248 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.41ms
+2024-10-26 17:59:08,249 [tornado.access.INFO] 200 GET /executions/active (127.0.0.1) 1.00ms
+2024-10-26 17:59:08,265 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 17:59:09,775 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 17:59:09,775 [script_server.execution_service.INFO] Calling script #6: D:\script-server\conf\scripts\menu.py
+2024-10-26 17:59:09,785 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.29ms
+2024-10-26 17:59:09,790 [tornado.access.INFO] 101 GET /executions/io/6 (127.0.0.1) 0.00ms
+2024-10-26 17:59:41,557 [web_server.INFO] admin disconnected
+2024-10-26 17:59:41,560 [tornado.access.INFO] 200 POST /executions/cleanup/6 (127.0.0.1) 3.57ms
+2024-10-26 18:12:07,016 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.80ms
+2024-10-26 18:13:30,643 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 18:13:30,644 [script_server.execution_service.INFO] Calling script #7: D:\script-server\conf\scripts\menu.py
+2024-10-26 18:13:30,648 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 8.71ms
+2024-10-26 18:13:30,653 [tornado.access.INFO] 101 GET /executions/io/7 (127.0.0.1) 0.00ms
+2024-10-26 18:15:44,471 [web_server.INFO] admin disconnected
+2024-10-26 18:15:44,483 [tornado.access.INFO] 200 POST /executions/cleanup/7 (127.0.0.1) 4.64ms
+2024-10-26 18:16:29,082 [root.INFO] Starting Script Server (custom version)
+2024-10-26 18:16:29,086 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 18:16:29,299 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.50ms
+2024-10-26 18:16:32,292 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 30.52ms
+2024-10-26 18:16:32,456 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 5.00ms
+2024-10-26 18:16:32,460 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 3.00ms
+2024-10-26 18:16:32,460 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 2.00ms
+2024-10-26 18:16:32,462 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.00ms
+2024-10-26 18:16:32,477 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:16:33,159 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.12ms
+2024-10-26 18:16:33,241 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 0.00ms
+2024-10-26 18:16:33,242 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 18:16:33,244 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.28ms
+2024-10-26 18:16:33,244 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.28ms
+2024-10-26 18:16:33,280 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.46ms
+2024-10-26 18:16:35,821 [tornado.access.INFO] 200 GET /history/execution_log/short (127.0.0.1) 4.01ms
+2024-10-26 18:16:36,887 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 18:16:37,973 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 18:16:37,973 [script_server.execution_service.INFO] Calling script #8: D:\script-server\conf\scripts\menu.py
+2024-10-26 18:16:37,982 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.70ms
+2024-10-26 18:16:37,987 [tornado.access.INFO] 101 GET /executions/io/8 (127.0.0.1) 0.00ms
+2024-10-26 18:17:08,195 [web_server.INFO] admin disconnected
+2024-10-26 18:17:08,206 [tornado.access.INFO] 200 POST /executions/cleanup/8 (127.0.0.1) 5.41ms
+2024-10-26 18:33:23,439 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.53ms
+2024-10-26 18:34:04,691 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.00ms
+2024-10-26 18:34:04,734 [tornado.access.INFO] 304 GET /css/chunk-index-vendors.f4386b5c.css (127.0.0.1) 16.99ms
+2024-10-26 18:34:04,747 [tornado.access.INFO] 304 GET /css/index.0a3f4564.css (127.0.0.1) 11.55ms
+2024-10-26 18:34:04,789 [tornado.access.INFO] 304 GET /js/index.ae235fe7.js (127.0.0.1) 50.77ms
+2024-10-26 18:34:04,887 [tornado.access.INFO] 304 GET /js/chunk-index-vendors.22fcd889.js (127.0.0.1) 98.91ms
+2024-10-26 18:34:04,957 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:34:04,958 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.11ms
+2024-10-26 18:34:04,960 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.19ms
+2024-10-26 18:34:04,960 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.19ms
+2024-10-26 18:34:04,982 [tornado.access.INFO] 304 GET /favicon.ico (127.0.0.1) 7.37ms
+2024-10-26 18:34:04,984 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 18:34:05,000 [tornado.access.INFO] 304 GET /fonts/MaterialIcons-Regular.570eb838.woff2 (127.0.0.1) 8.16ms
+2024-10-26 18:34:54,270 [root.INFO] Starting Script Server (custom version)
+2024-10-26 18:34:54,276 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 18:34:54,947 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:34:59,795 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 27.96ms
+2024-10-26 18:34:59,892 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:34:59,894 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:34:59,897 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.19ms
+2024-10-26 18:34:59,898 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.01ms
+2024-10-26 18:34:59,934 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:35:00,516 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.49ms
+2024-10-26 18:35:00,594 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.40ms
+2024-10-26 18:35:00,594 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 18:35:00,595 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.15ms
+2024-10-26 18:35:00,597 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.00ms
+2024-10-26 18:35:00,631 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 18:35:01,110 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.07ms
+2024-10-26 18:35:01,182 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.29ms
+2024-10-26 18:35:01,183 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 18:35:01,185 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.39ms
+2024-10-26 18:35:01,185 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.29ms
+2024-10-26 18:35:01,220 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.56ms
+2024-10-26 18:35:01,317 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.47ms
+2024-10-26 18:35:01,393 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.24ms
+2024-10-26 18:35:01,394 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 18:35:01,395 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.26ms
+2024-10-26 18:35:01,396 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.25ms
+2024-10-26 18:35:01,430 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:35:01,535 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.11ms
+2024-10-26 18:35:01,610 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 0.00ms
+2024-10-26 18:35:01,611 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.22ms
+2024-10-26 18:35:01,614 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.34ms
+2024-10-26 18:35:01,614 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.34ms
+2024-10-26 18:35:01,648 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.29ms
+2024-10-26 18:35:01,727 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.09ms
+2024-10-26 18:35:01,799 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.23ms
+2024-10-26 18:35:01,802 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.00ms
+2024-10-26 18:35:01,802 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 2.00ms
+2024-10-26 18:35:01,803 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 18:35:01,836 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.60ms
+2024-10-26 18:35:02,663 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 2.07ms
+2024-10-26 18:35:02,734 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 0.00ms
+2024-10-26 18:35:02,735 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 18:35:02,738 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.49ms
+2024-10-26 18:35:02,739 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 18:35:02,772 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 18:35:03,411 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.00ms
+2024-10-26 18:35:03,485 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.43ms
+2024-10-26 18:35:03,487 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.19ms
+2024-10-26 18:35:03,489 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.07ms
+2024-10-26 18:35:03,490 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.13ms
+2024-10-26 18:35:03,522 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:35:04,010 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.00ms
+2024-10-26 18:35:04,075 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.02ms
+2024-10-26 18:35:04,076 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:35:04,079 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.29ms
+2024-10-26 18:35:04,080 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.34ms
+2024-10-26 18:35:04,108 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:35:04,677 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.00ms
+2024-10-26 18:35:04,743 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:35:04,744 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:35:04,746 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.04ms
+2024-10-26 18:35:04,746 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.04ms
+2024-10-26 18:35:04,776 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.51ms
+2024-10-26 18:35:05,242 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 0.99ms
+2024-10-26 18:35:05,309 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:35:05,310 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:35:05,312 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.30ms
+2024-10-26 18:35:05,313 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.00ms
+2024-10-26 18:35:05,342 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.04ms
+2024-10-26 18:35:05,798 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.27ms
+2024-10-26 18:35:05,862 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.40ms
+2024-10-26 18:35:05,864 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.01ms
+2024-10-26 18:35:05,866 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.37ms
+2024-10-26 18:35:05,867 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.38ms
+2024-10-26 18:35:05,895 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:35:06,305 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 2.08ms
+2024-10-26 18:35:06,371 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.11ms
+2024-10-26 18:35:06,374 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.00ms
+2024-10-26 18:35:06,375 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 3.00ms
+2024-10-26 18:35:06,376 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.00ms
+2024-10-26 18:35:06,405 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:35:06,712 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.99ms
+2024-10-26 18:35:06,776 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:35:06,778 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.54ms
+2024-10-26 18:35:06,779 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 3.60ms
+2024-10-26 18:35:06,779 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.09ms
+2024-10-26 18:35:06,806 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.17ms
+2024-10-26 18:35:07,006 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.50ms
+2024-10-26 18:35:07,073 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:35:07,074 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.27ms
+2024-10-26 18:35:07,076 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.26ms
+2024-10-26 18:35:07,076 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.26ms
+2024-10-26 18:35:07,106 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:35:07,217 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.01ms
+2024-10-26 18:35:07,281 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.45ms
+2024-10-26 18:35:07,282 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:35:07,285 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 3.27ms
+2024-10-26 18:35:07,285 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 18:35:07,316 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:40:02,501 [root.INFO] Starting Script Server (custom version)
+2024-10-26 18:40:02,503 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 18:40:04,124 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:40:05,469 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 28.04ms
+2024-10-26 18:40:05,564 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:40:05,566 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:40:05,568 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.04ms
+2024-10-26 18:40:05,569 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 18:40:05,602 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.02ms
+2024-10-26 18:40:06,153 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.40ms
+2024-10-26 18:40:06,235 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.95ms
+2024-10-26 18:40:06,235 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 18:40:06,238 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.23ms
+2024-10-26 18:40:06,239 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 18:40:06,272 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:40:07,103 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 2.16ms
+2024-10-26 18:40:07,176 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:40:07,178 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.34ms
+2024-10-26 18:40:07,180 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.00ms
+2024-10-26 18:40:07,180 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.00ms
+2024-10-26 18:40:07,215 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 18:40:16,160 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.01ms
+2024-10-26 18:40:16,161 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.01ms
+2024-10-26 18:40:16,164 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.27ms
+2024-10-26 18:40:16,164 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.27ms
+2024-10-26 18:40:18,664 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.54ms
+2024-10-26 18:40:20,181 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 18:40:20,182 [script_server.execution_service.INFO] Calling script #9: D:\script-server\conf\scripts\menu.py
+2024-10-26 18:40:20,188 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.44ms
+2024-10-26 18:40:20,194 [tornado.access.INFO] 101 GET /executions/io/9 (127.0.0.1) 0.00ms
+2024-10-26 18:41:03,172 [web_server.INFO] admin disconnected
+2024-10-26 18:41:03,187 [tornado.access.INFO] 200 POST /executions/cleanup/9 (127.0.0.1) 15.29ms
+2024-10-26 18:41:12,982 [root.INFO] Starting Script Server (custom version)
+2024-10-26 18:41:12,982 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 18:41:13,520 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:41:16,009 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 28.91ms
+2024-10-26 18:41:16,109 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.32ms
+2024-10-26 18:41:16,110 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:41:16,112 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.12ms
+2024-10-26 18:41:16,114 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.49ms
+2024-10-26 18:41:16,148 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.00ms
+2024-10-26 18:41:17,000 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 1.79ms
+2024-10-26 18:41:17,071 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.39ms
+2024-10-26 18:41:17,071 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 0.00ms
+2024-10-26 18:41:17,074 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.00ms
+2024-10-26 18:41:17,074 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 2.00ms
+2024-10-26 18:41:17,103 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:41:17,627 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 18:41:17,627 [script_server.execution_service.INFO] Calling script #10: D:\script-server\conf\scripts\menu.py
+2024-10-26 18:41:17,636 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.72ms
+2024-10-26 18:41:17,643 [tornado.access.INFO] 101 GET /executions/io/10 (127.0.0.1) 1.41ms
+2024-10-26 18:41:47,865 [root.INFO] Starting Script Server (custom version)
+2024-10-26 18:41:47,869 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 18:41:48,777 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:41:49,319 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 16.44ms
+2024-10-26 18:41:49,408 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.02ms
+2024-10-26 18:41:49,409 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.16ms
+2024-10-26 18:41:49,412 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 2.44ms
+2024-10-26 18:41:49,413 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 0.00ms
+2024-10-26 18:41:49,444 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:41:50,660 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 18:41:50,660 [script_server.execution_service.INFO] Calling script #11: D:\script-server\conf\scripts\menu.py
+2024-10-26 18:41:50,670 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.43ms
+2024-10-26 18:41:50,676 [tornado.access.INFO] 101 GET /executions/io/11 (127.0.0.1) 0.00ms
+2024-10-26 18:42:23,399 [web_server.INFO] admin disconnected
+2024-10-26 18:42:23,405 [tornado.access.INFO] 200 POST /executions/cleanup/11 (127.0.0.1) 5.14ms
