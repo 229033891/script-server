@@ -458,3 +458,6 @@ ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
 2024-10-26 17:43:30,753 [tornado.access.INFO] 101 GET /executions/io/1 (127.0.0.1) 0.00ms
 2024-10-26 17:43:52,853 [web_server.INFO] admin disconnected
 2024-10-26 17:43:52,860 [tornado.access.INFO] 200 POST /executions/cleanup/1 (127.0.0.1) 4.69ms
+2024-10-26 17:49:23,299 [root.INFO] Starting Script Server (custom version)
+2024-10-26 17:49:23,299 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 17:49:23,465 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
