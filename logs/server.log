@@ -822,3 +822,18 @@ ValueError: invalid literal for int() with base 10: '2024-10-26 15:22:11.189398'
 2024-10-26 18:41:50,676 [tornado.access.INFO] 101 GET /executions/io/11 (127.0.0.1) 0.00ms
 2024-10-26 18:42:23,399 [web_server.INFO] admin disconnected
 2024-10-26 18:42:23,405 [tornado.access.INFO] 200 POST /executions/cleanup/11 (127.0.0.1) 5.14ms
+2024-10-26 18:46:08,120 [root.INFO] Starting Script Server (custom version)
+2024-10-26 18:46:08,127 [script_server.HtpasswdAuthenticator.INFO] Using built-in encoder for password verification
+2024-10-26 18:46:08,642 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 0.00ms
+2024-10-26 18:46:13,239 [tornado.access.INFO] 304 GET /index.html (127.0.0.1) 26.85ms
+2024-10-26 18:46:13,385 [tornado.access.INFO] 304 GET /auth/info (127.0.0.1) 1.00ms
+2024-10-26 18:46:13,387 [tornado.access.INFO] 304 GET /conf (127.0.0.1) 1.00ms
+2024-10-26 18:46:13,390 [tornado.access.INFO] 304 GET /scripts (127.0.0.1) 1.54ms
+2024-10-26 18:46:13,391 [tornado.access.INFO] 304 GET /executions/active (127.0.0.1) 1.01ms
+2024-10-26 18:46:13,411 [tornado.access.INFO] 101 GET /scripts/menu?initWithValues=false (127.0.0.1) 1.04ms
+2024-10-26 18:46:14,434 [web_server.INFO] Calling script menu. User {'auth_username': 'admin', 'ip': '127.0.0.1', 'hostname': 'py.cschub.vip'}
+2024-10-26 18:46:14,435 [script_server.execution_service.INFO] Calling script #12: D:\script-server\conf\scripts\menu.py
+2024-10-26 18:46:14,445 [tornado.access.INFO] 200 POST /executions/start (127.0.0.1) 13.45ms
+2024-10-26 18:46:14,451 [tornado.access.INFO] 101 GET /executions/io/12 (127.0.0.1) 0.00ms
+2024-10-26 18:46:21,172 [web_server.INFO] admin disconnected
+2024-10-26 18:46:27,445 [tornado.access.INFO] 200 POST /executions/cleanup/12 (127.0.0.1) 7.57ms
