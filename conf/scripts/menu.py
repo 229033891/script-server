@@ -2,6 +2,11 @@ import subprocess
 import sys
 import os
 import threading
+import locale
+
+# 设置全局编码为 UTF-8
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+os.environ['PYTHONIOENCODING'] = 'utf-8'
 
 def input_with_timeout(prompt, timeout):
     """带超时的输入"""
@@ -28,7 +33,10 @@ def execute_script(script_name):
     """执行指定的脚本"""
     try:
         script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), script_name)
-        subprocess.run([sys.executable, script_path], check=True)
+        # 设置环境变量以确保 UTF-8 编码
+        env = os.environ.copy()
+        env['PYTHONIOENCODING'] = 'utf-8'
+        subprocess.run([sys.executable, script_path], check=True, env=env)
     except subprocess.CalledProcessError as e:
         print(f"\033[91m错误! 无法调用 {script_name}: {str(e)}\033[0m")
 

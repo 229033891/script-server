@@ -4,7 +4,7 @@ import os
 import re
 from string import Template
 from typing import Optional
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 
 from auth.authorization import is_same_user
 from execution.execution_service import ExecutionService
@@ -15,11 +15,7 @@ from utils import file_utils, audit_utils
 from utils.audit_utils import get_audit_name
 from utils.collection_utils import get_first_existing
 from utils.date_utils import get_current_millis, ms_to_datetime
-from datetime import datetime, timezone
 
- 
-print(int(datetime.now().timestamp() * 1000))
-print(datetime.now())
 
 ENCODING = 'utf8'
 
@@ -27,6 +23,12 @@ OUTPUT_STARTED_MARKER = 'OUTPUT-STARTED'
 
 LOGGER = logging.getLogger('script_server.execution.logging')
 
+def parse_datetime_string(date_string):
+    try:
+        return datetime.strptime(date_string, '%Y-%m-%d %H:%M:%S.%f')
+    except ValueError as e:
+        LOGGER.exception(f"Invalid date format for start_time: {date_string}, error: {str(e)}")
+        return None
 
 class ScriptOutputLogger:
     def __init__(self, log_file_path, output_stream):
@@ -40,7 +42,6 @@ class ScriptOutputLogger:
 
     def start(self):
         self._ensure_file_open()
-
         self.output_stream.subscribe(self)
 
     def _ensure_file_open(self):
@@ -89,7 +90,6 @@ class ScriptOutputLogger:
 
     def write_line(self, text):
         self._ensure_file_open()
-
         self.__log(text + os.linesep)
 
     def set_close_callback(self, callback):
@@ -126,7 +126,6 @@ class ExecutionLoggingService:
         self._output_loggers = {}
 
         file_utils.prepare_folder(output_folder)
-
         self._renew_files_cache()
 
     def start_logging(self, execution_id,
@@ -183,7 +182,6 @@ class ExecutionLoggingService:
             return
 
         log_file_path = os.path.join(self._output_folder, filename)
-
         logger.set_close_callback(lambda: self._write_post_execution_info(log_file_path, exit_code))
 
     def get_history_entries(self, user_id, *, system_call=False):
@@ -281,9 +279,7 @@ class ExecutionLoggingService:
     @staticmethod
     def _create_log_identifier(audit_name, script_name, start_time):
         audit_name = file_utils.to_filename(audit_name)
-
         date_string = ms_to_datetime(start_time).strftime("%y%m%d_%H%M%S")
-
         script_name = script_name.replace(" ", "_")
         log_identifier = script_name + "_" + audit_name + "_" + date_string
         return log_identifier
@@ -327,11 +323,14 @@ class ExecutionLoggingService:
 
         exit_code = parameters.get('exit_code')
         if exit_code is not None:
-            entry.exit_code = int(exit_code)
+            try:
+                entry.exit_code = int(exit_code)
+            except ValueError:
+                LOGGER.exception(f"Invalid exit code: {exit_code}")
 
         start_time = parameters.get('start_time')
         if start_time:
-            entry.start_time = ms_to_datetime(int(start_time))
+            entry.start_time = parse_datetime_string(start_time)  # 使用新的解析函数
 
         return entry
 
@@ -346,8 +345,12 @@ class ExecutionLoggingService:
         # 尝试拆分文件内容
         file_parts = file_content.split(expected_marker, 1)
 
-        # 打印拆分结果用于调试
-        print(f"File parts after split: {file_parts}")
+        # 分别打印拆分后的两部分用于调试
+        print(f"Len of File: {len(file_parts)}")
+        #if len(file_parts) > 0:
+        #    print(f"File part 1: {file_parts[0]}")
+        #if len(file_parts) > 1:
+        #    print(f"File part 2: {file_parts[1]}")
 
         # 检查拆分结果的长度
         if len(file_parts) < 2:
@@ -465,15 +468,12 @@ class ExecutionLoggingController:
 def _rstrip_once(text, char):
     if text.endswith(char):
         text = text[:-1]
-
     return text
 
 
 def _lstrip_any_linesep(text):
     if text.startswith('\r\n'):
         return text[2:]
-
     if text.startswith(os.linesep):
         return text[len(os.linesep):]
-
     return text

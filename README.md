@@ -50,6 +50,25 @@ npm run serve 生成测试环境
 npm run build 生成正式的web文件
 生成web文件时,node.js安装V16版本,其他高版本可能会报错,需要安装vue-cli-service
 
+全局安装Vue CLi：
+
+```python
+npm install -g @vue/cli
+```
+
+
+检查是否安装成功
+运行以下命令来确认 @vue/cli-service 是否已正确安装：
+
+```shell
+npm list @vue/cli-service
+```
+如果已安装，你应该会看到类似的信息：
+
+
+your-project-name@1.0.0 /path/to/your/project
+└── @vue/cli-service@4.x.x
+
 ## Features
 
 - Different types of script parameters (text, flag, dropdown, file upload, etc.)
