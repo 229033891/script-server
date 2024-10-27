@@ -5,7 +5,7 @@
       Welcome to the Script Server. <br> To start, select one of the scripts
     </div>
     <div ref="welcomeCookieText" class="welcome-cookie-text">
-      or just take a cookie and enjoy!
+      or email 229033891@qq.com
     </div>
   </div>
 </template>
