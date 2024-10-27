@@ -16,7 +16,6 @@ from utils.audit_utils import get_audit_name
 from utils.collection_utils import get_first_existing
 from utils.date_utils import get_current_millis, ms_to_datetime
 
-
 ENCODING = 'utf8'
 
 OUTPUT_STARTED_MARKER = 'OUTPUT-STARTED'
@@ -35,7 +34,6 @@ class ScriptOutputLogger:
         self.opened = False
         self.closed = False
         self.output_stream = output_stream
-
         self.log_file_path = log_file_path
         self.log_file = None
         self.close_callback = None
@@ -47,22 +45,18 @@ class ScriptOutputLogger:
     def _ensure_file_open(self):
         if self.opened:
             return
-
         try:
             self.log_file = open(self.log_file_path, 'wb')
         except:
             LOGGER.exception("Couldn't create a log file")
-
         self.opened = True
 
     def __log(self, text):
         if not self.opened:
             LOGGER.exception('Attempt to write to not opened logger')
             return
-
         if not self.log_file:
             return
-
         try:
             if text is not None:
                 self.log_file.write(text.encode(ENCODING))
@@ -76,9 +70,7 @@ class ScriptOutputLogger:
                 self.log_file.close()
         except:
             LOGGER.exception("Couldn't close the log file")
-
         self.closed = True
-
         if self.close_callback:
             self.close_callback()
 
@@ -96,12 +88,9 @@ class ScriptOutputLogger:
         if self.close_callback is not None:
             LOGGER.error('Attempt to override close callback ' + repr(self.close_callback) + ' with ' + repr(callback))
             return
-
         self.close_callback = callback
-
         if self.closed:
             self.close_callback()
-
 
 class HistoryEntry:
     def __init__(self):
@@ -113,7 +102,6 @@ class HistoryEntry:
         self.output_format = None
         self.id = None
         self.exit_code = None
-
 
 class ExecutionLoggingService:
     def __init__(self, output_folder, log_name_creator, authorizer):
@@ -128,20 +116,10 @@ class ExecutionLoggingService:
         file_utils.prepare_folder(output_folder)
         self._renew_files_cache()
 
-    def start_logging(self, execution_id,
-                      user_name,
-                      user_id,
-                      command,
-                      output_stream,
-                      all_audit_names,
-                      script_config,
-                      parameter_value_wrappers,
-                      start_time_millis=None):
-
+    def start_logging(self, execution_id, user_name, user_id, command, output_stream, all_audit_names, script_config, parameter_value_wrappers, start_time_millis=None):
         script_name = str(script_config.name)
-
         if start_time_millis is None:
-            start_time_millis = int(datetime.now().timestamp() * 1000)
+            start_time_millis = get_current_millis()
 
         log_filename = self._log_name_creator.create_filename(
             execution_id,
@@ -150,7 +128,8 @@ class ExecutionLoggingService:
             start_time_millis,
             script_config.logging_config,
             script_config.parameters,
-            parameter_value_wrappers)
+            parameter_value_wrappers
+        )
         log_file_path = os.path.join(self._output_folder, log_filename)
         log_file_path = file_utils.create_unique_filename(log_file_path)
 
@@ -186,7 +165,6 @@ class ExecutionLoggingService:
 
     def get_history_entries(self, user_id, *, system_call=False):
         self._renew_files_cache()
-
         result = []
 
         for file in self._ids_to_file_map.values():
@@ -198,7 +176,6 @@ class ExecutionLoggingService:
 
     def find_history_entry(self, execution_id, user_id):
         self._renew_files_cache()
-
         file = self._ids_to_file_map.get(execution_id)
         if file is None:
             LOGGER.warning('find_history_entry: file for %s id not found', execution_id)
@@ -207,7 +184,6 @@ class ExecutionLoggingService:
         entry = self._extract_history_entry(file)
         if entry is None:
             LOGGER.warning('find_history_entry: cannot parse file for %s', execution_id)
-
         elif not self._can_access_entry(entry, user_id):
             message = 'User ' + user_id + ' has no access to execution #' + str(execution_id)
             LOGGER.warning('%s. Original user: %s', message, entry.user_id)
@@ -217,14 +193,12 @@ class ExecutionLoggingService:
 
     def find_log(self, execution_id):
         self._renew_files_cache()
-
         file = self._ids_to_file_map.get(execution_id)
         if file is None:
             LOGGER.warning('find_log: file for %s id not found', execution_id)
             return None
 
-        file_content = file_utils.read_file(os.path.join(self._output_folder, file),
-                                            keep_newlines=True)
+        file_content = file_utils.read_file(os.path.join(self._output_folder, file), keep_newlines=True)
         log = file_content.split(OUTPUT_STARTED_MARKER, 1)[1]
         return _lstrip_any_linesep(log)
 
@@ -264,7 +238,6 @@ class ExecutionLoggingService:
         for file in os.listdir(self._output_folder):
             if not file.lower().endswith('.log'):
                 continue
-
             if file in self._visited_files:
                 continue
 
@@ -288,17 +261,15 @@ class ExecutionLoggingService:
     def _parse_history_parameters(parameters_text):
         current_value = None
         current_key = None
-
         parameters = {}
+
         for line in parameters_text.splitlines(keepends=True):
             match = re.fullmatch(r'([\w_]+):(.*\r?\n)', line)
             if not match:
                 current_value += line
                 continue
-
             if current_key is not None:
                 parameters[current_key] = _rstrip_once(current_value, '\n')
-
             current_key = match.group(1)
             current_value = match.group(2)
 
@@ -337,22 +308,10 @@ class ExecutionLoggingService:
     @staticmethod
     def _write_post_execution_info(log_file_path, exit_code):
         file_content = file_utils.read_file(log_file_path, keep_newlines=True)
-
-        # 去除多余空白和换行符
         file_content = file_content.strip()
         expected_marker = OUTPUT_STARTED_MARKER.strip()
-
-        # 尝试拆分文件内容
         file_parts = file_content.split(expected_marker, 1)
-
-        # 分别打印拆分后的两部分用于调试
         print(f"Len of File: {len(file_parts)}")
-        #if len(file_parts) > 0:
-        #    print(f"File part 1: {file_parts[0]}")
-        #if len(file_parts) > 1:
-        #    print(f"File part 2: {file_parts[1]}")
-
-        # 检查拆分结果的长度
         if len(file_parts) < 2:
             raise ValueError(f"File content does not contain expected marker: {OUTPUT_STARTED_MARKER}")
 
@@ -365,15 +324,11 @@ class ExecutionLoggingService:
     def _can_access_entry(self, entry, user_id, system_call=False):
         if entry is None:
             return True
-
         if is_same_user(entry.user_id, user_id):
             return True
-
         if system_call:
             return True
-
         return self._authorizer.has_full_history_access(user_id)
-
 
 class LogNameCreator:
     def __init__(self, filename_pattern=None, date_format=None) -> None:
@@ -382,27 +337,16 @@ class LogNameCreator:
             filename_pattern = '${SCRIPT}_${AUDIT_NAME}_${DATE}'
         self._filename_template = Template(filename_pattern)
 
-    def create_filename(self,
-                        execution_id,
-                        all_audit_names,
-                        script_name,
-                        start_time,
-                        custom_logging_config: Optional[LoggingConfig],
-                        parameter_configs,
-                        parameter_value_wrappers):
-
+    def create_filename(self, execution_id, all_audit_names, script_name, start_time, custom_logging_config: Optional[LoggingConfig], parameter_configs, parameter_value_wrappers):
         audit_name = get_audit_name(all_audit_names)
         audit_name = file_utils.to_filename(audit_name)
-
         date_string = ms_to_datetime(start_time).strftime(self._resolve_date_format(custom_logging_config))
-
         username = audit_utils.get_audit_username(all_audit_names)
 
         mapping = {
             'ID': execution_id,
             'USERNAME': username,
-            'HOSTNAME': get_first_existing(all_audit_names, audit_utils.PROXIED_HOSTNAME, audit_utils.HOSTNAME,
-                                           default='unknown-host'),
+            'HOSTNAME': get_first_existing(all_audit_names, audit_utils.PROXIED_HOSTNAME, audit_utils.HOSTNAME, default='unknown-host'),
             'IP': get_first_existing(all_audit_names, audit_utils.PROXIED_IP, audit_utils.IP),
             'DATE': date_string,
             'AUDIT_NAME': audit_name,
@@ -413,7 +357,6 @@ class LogNameCreator:
         filename = model_helper.fill_parameter_values(parameter_configs, filename, parameter_value_wrappers)
         if not filename.lower().endswith('.log'):
             filename += '.log'
-
         filename = filename.replace(" ", "_").replace("/", "_")
 
         return filename
@@ -427,7 +370,6 @@ class LogNameCreator:
         if custom_logging_config and custom_logging_config.filename_pattern:
             return Template(custom_logging_config.filename_pattern)
         return self._filename_template
-
 
 class ExecutionLoggingController:
     def __init__(self, execution_service: ExecutionService, execution_logging_service):
@@ -455,7 +397,8 @@ class ExecutionLoggingController:
                 output_stream,
                 all_audit_names,
                 script_config,
-                parameter_value_wrappers)
+                parameter_value_wrappers
+            )
 
         def finished(execution_id, user):
             exit_code = execution_service.get_exit_code(execution_id)
@@ -464,12 +407,10 @@ class ExecutionLoggingController:
         self._execution_service.add_start_listener(started)
         self._execution_service.add_finish_listener(finished)
 
-
 def _rstrip_once(text, char):
     if text.endswith(char):
         text = text[:-1]
     return text
-
 
 def _lstrip_any_linesep(text):
     if text.startswith('\r\n'):
