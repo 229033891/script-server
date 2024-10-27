@@ -49,7 +49,7 @@ def main_menu():
     }
 
     while True:
-        print("\n请选择操作:")
+        print("请选择操作:")
         print("1. 拆分PDF文件")
         print("2. 打印文件")
         print("3. 打印文件(PDFtoPrinter)")
