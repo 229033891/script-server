@@ -1,0 +1,8 @@
+{
+  "name": "2.1AutoPrint",
+  "script_path": "conf\\scripts\\menu.py",
+  "group": "2.\u6253\u5370\u7ba1\u7406",
+  "requires_terminal": false,
+  "output_format": "terminal",
+  "parameters": []
+}

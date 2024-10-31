@@ -1,0 +1,6 @@
+{
+  "name": "printtotable",
+  "script_path": "conf\\scripts\\printtotable.py",
+  "output_format": "terminal",
+  "parameters": []
+}

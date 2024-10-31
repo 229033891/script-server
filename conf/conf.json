@@ -1,0 +1,44 @@
+{
+  "port": 443,
+  "address": "0.0.0.0",
+  "title": "My Script Server",
+"ssl": {
+    "key_path": "conf/ssl/py.cschub.vip.key",
+    "cert_path": "conf/ssl/py.cschub.vip.crt"
+  },
+  "logging": {
+   "execution_file": "${ID}_${DATE}_${SCRIPT}_${USERNAME}",
+    "execution_date_format": "%Y-%m-%d_%H-%M-%S"
+  },
+  "security": {
+    "xsrf_protection": "token"
+  },
+  "auth": {
+    "type": "htpasswd",
+    "htpasswd_path": "conf/.htpasswd"
+},
+ "alerts": {
+    "destinations": [
+      {
+        "type": "email",
+        "from": "service@integratedlm.com",
+        "to": "229033891@qq.com.com",
+        "server": "smtphz.qiye.163.com",
+        "auth_enabled": true,
+        "login": "service@integratedlm.com",
+        "password": "Integrated@2019",
+        "tls": true,
+        "url": "localhost:443/test_alerts"
+      }
+    ]
+  },
+  "access": {
+	"allowed_users": [ "*" ],
+	"admin_users": [ "admin" ],
+	"groups": {
+		"admin": ["admin"],
+		"all": ["@admin","kwang"]
+	}
+  }
+
+}

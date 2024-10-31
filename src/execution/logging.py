@@ -4,6 +4,7 @@ import os
 import re
 from string import Template
 from typing import Optional
+from datetime import datetime, timezone
 
 from auth.authorization import is_same_user
 from execution.execution_service import ExecutionService
@@ -17,45 +18,45 @@ from utils.date_utils import get_current_millis, ms_to_datetime
 
 ENCODING = 'utf8'
 
-OUTPUT_STARTED_MARKER = '>>>>>  OUTPUT STARTED <<<<<'
+OUTPUT_STARTED_MARKER = 'OUTPUT-STARTED'
 
 LOGGER = logging.getLogger('script_server.execution.logging')
 
+def parse_datetime_string(date_string):
+    try:
+        return datetime.strptime(date_string, '%Y-%m-%d %H:%M:%S.%f')
+    except ValueError as e:
+        LOGGER.exception(f"Invalid date format for start_time: {date_string}, error: {str(e)}")
+        return None
 
 class ScriptOutputLogger:
     def __init__(self, log_file_path, output_stream):
         self.opened = False
         self.closed = False
         self.output_stream = output_stream
-
         self.log_file_path = log_file_path
         self.log_file = None
         self.close_callback = None
 
     def start(self):
         self._ensure_file_open()
-
         self.output_stream.subscribe(self)
 
     def _ensure_file_open(self):
         if self.opened:
             return
-
         try:
             self.log_file = open(self.log_file_path, 'wb')
         except:
             LOGGER.exception("Couldn't create a log file")
-
         self.opened = True
 
     def __log(self, text):
         if not self.opened:
             LOGGER.exception('Attempt to write to not opened logger')
             return
-
         if not self.log_file:
             return
-
         try:
             if text is not None:
                 self.log_file.write(text.encode(ENCODING))
@@ -69,9 +70,7 @@ class ScriptOutputLogger:
                 self.log_file.close()
         except:
             LOGGER.exception("Couldn't close the log file")
-
         self.closed = True
-
         if self.close_callback:
             self.close_callback()
 
@@ -83,19 +82,15 @@ class ScriptOutputLogger:
 
     def write_line(self, text):
         self._ensure_file_open()
-
         self.__log(text + os.linesep)
 
     def set_close_callback(self, callback):
         if self.close_callback is not None:
             LOGGER.error('Attempt to override close callback ' + repr(self.close_callback) + ' with ' + repr(callback))
             return
-
         self.close_callback = callback
-
         if self.closed:
             self.close_callback()
-
 
 class HistoryEntry:
     def __init__(self):
@@ -108,7 +103,6 @@ class HistoryEntry:
         self.id = None
         self.exit_code = None
 
-
 class ExecutionLoggingService:
     def __init__(self, output_folder, log_name_creator, authorizer):
         self._output_folder = output_folder
@@ -120,21 +114,10 @@ class ExecutionLoggingService:
         self._output_loggers = {}
 
         file_utils.prepare_folder(output_folder)
-
         self._renew_files_cache()
 
-    def start_logging(self, execution_id,
-                      user_name,
-                      user_id,
-                      command,
-                      output_stream,
-                      all_audit_names,
-                      script_config,
-                      parameter_value_wrappers,
-                      start_time_millis=None):
-
+    def start_logging(self, execution_id, user_name, user_id, command, output_stream, all_audit_names, script_config, parameter_value_wrappers, start_time_millis=None):
         script_name = str(script_config.name)
-
         if start_time_millis is None:
             start_time_millis = get_current_millis()
 
@@ -145,7 +128,8 @@ class ExecutionLoggingService:
             start_time_millis,
             script_config.logging_config,
             script_config.parameters,
-            parameter_value_wrappers)
+            parameter_value_wrappers
+        )
         log_file_path = os.path.join(self._output_folder, log_filename)
         log_file_path = file_utils.create_unique_filename(log_file_path)
 
@@ -154,7 +138,7 @@ class ExecutionLoggingService:
         output_logger.write_line('user_name:' + user_name)
         output_logger.write_line('user_id:' + user_id)
         output_logger.write_line('script:' + script_name)
-        output_logger.write_line('start_time:' + str(start_time_millis))
+        output_logger.write_line('start_time:' + str(datetime.now()))
         output_logger.write_line('command:' + command)
         output_logger.write_line('output_format:' + script_config.output_format)
         output_logger.write_line(OUTPUT_STARTED_MARKER)
@@ -177,12 +161,10 @@ class ExecutionLoggingService:
             return
 
         log_file_path = os.path.join(self._output_folder, filename)
-
         logger.set_close_callback(lambda: self._write_post_execution_info(log_file_path, exit_code))
 
     def get_history_entries(self, user_id, *, system_call=False):
         self._renew_files_cache()
-
         result = []
 
         for file in self._ids_to_file_map.values():
@@ -194,7 +176,6 @@ class ExecutionLoggingService:
 
     def find_history_entry(self, execution_id, user_id):
         self._renew_files_cache()
-
         file = self._ids_to_file_map.get(execution_id)
         if file is None:
             LOGGER.warning('find_history_entry: file for %s id not found', execution_id)
@@ -203,7 +184,6 @@ class ExecutionLoggingService:
         entry = self._extract_history_entry(file)
         if entry is None:
             LOGGER.warning('find_history_entry: cannot parse file for %s', execution_id)
-
         elif not self._can_access_entry(entry, user_id):
             message = 'User ' + user_id + ' has no access to execution #' + str(execution_id)
             LOGGER.warning('%s. Original user: %s', message, entry.user_id)
@@ -213,14 +193,12 @@ class ExecutionLoggingService:
 
     def find_log(self, execution_id):
         self._renew_files_cache()
-
         file = self._ids_to_file_map.get(execution_id)
         if file is None:
             LOGGER.warning('find_log: file for %s id not found', execution_id)
             return None
 
-        file_content = file_utils.read_file(os.path.join(self._output_folder, file),
-                                            keep_newlines=True)
+        file_content = file_utils.read_file(os.path.join(self._output_folder, file), keep_newlines=True)
         log = file_content.split(OUTPUT_STARTED_MARKER, 1)[1]
         return _lstrip_any_linesep(log)
 
@@ -260,7 +238,6 @@ class ExecutionLoggingService:
         for file in os.listdir(self._output_folder):
             if not file.lower().endswith('.log'):
                 continue
-
             if file in self._visited_files:
                 continue
 
@@ -275,9 +252,7 @@ class ExecutionLoggingService:
     @staticmethod
     def _create_log_identifier(audit_name, script_name, start_time):
         audit_name = file_utils.to_filename(audit_name)
-
         date_string = ms_to_datetime(start_time).strftime("%y%m%d_%H%M%S")
-
         script_name = script_name.replace(" ", "_")
         log_identifier = script_name + "_" + audit_name + "_" + date_string
         return log_identifier
@@ -286,17 +261,15 @@ class ExecutionLoggingService:
     def _parse_history_parameters(parameters_text):
         current_value = None
         current_key = None
-
         parameters = {}
+
         for line in parameters_text.splitlines(keepends=True):
-            match = re.fullmatch('([\w_]+):(.*\r?\n)', line)
+            match = re.fullmatch(r'([\w_]+):(.*\r?\n)', line)
             if not match:
                 current_value += line
                 continue
-
             if current_key is not None:
                 parameters[current_key] = _rstrip_once(current_value, '\n')
-
             current_key = match.group(1)
             current_value = match.group(2)
 
@@ -321,37 +294,41 @@ class ExecutionLoggingService:
 
         exit_code = parameters.get('exit_code')
         if exit_code is not None:
-            entry.exit_code = int(exit_code)
+            try:
+                entry.exit_code = int(exit_code)
+            except ValueError:
+                LOGGER.exception(f"Invalid exit code: {exit_code}")
 
         start_time = parameters.get('start_time')
         if start_time:
-            entry.start_time = ms_to_datetime(int(start_time))
+            entry.start_time = parse_datetime_string(start_time)  # 使用新的解析函数
 
         return entry
 
     @staticmethod
     def _write_post_execution_info(log_file_path, exit_code):
         file_content = file_utils.read_file(log_file_path, keep_newlines=True)
+        file_content = file_content.strip()
+        expected_marker = OUTPUT_STARTED_MARKER.strip()
+        file_parts = file_content.split(expected_marker, 1)
+        print(f"Len of File: {len(file_parts)}")
+        if len(file_parts) < 2:
+            raise ValueError(f"File content does not contain expected marker: {OUTPUT_STARTED_MARKER}")
 
-        file_parts = file_content.split(OUTPUT_STARTED_MARKER + os.linesep, 1)
-        parameters_text = file_parts[0]
-        parameters_text += 'exit_code:' + str(exit_code) + os.linesep
+        parameters_text = file_parts[0].strip()
+        parameters_text += f'\nexit_code:{exit_code}\n'
 
-        new_content = parameters_text + OUTPUT_STARTED_MARKER + os.linesep + file_parts[1]
+        new_content = f"{parameters_text}\n{OUTPUT_STARTED_MARKER}\n{file_parts[1].strip()}"
         file_utils.write_file(log_file_path, new_content.encode(ENCODING), byte_content=True)
 
     def _can_access_entry(self, entry, user_id, system_call=False):
         if entry is None:
             return True
-
         if is_same_user(entry.user_id, user_id):
             return True
-
         if system_call:
             return True
-
         return self._authorizer.has_full_history_access(user_id)
-
 
 class LogNameCreator:
     def __init__(self, filename_pattern=None, date_format=None) -> None:
@@ -360,27 +337,16 @@ class LogNameCreator:
             filename_pattern = '${SCRIPT}_${AUDIT_NAME}_${DATE}'
         self._filename_template = Template(filename_pattern)
 
-    def create_filename(self,
-                        execution_id,
-                        all_audit_names,
-                        script_name,
-                        start_time,
-                        custom_logging_config: Optional[LoggingConfig],
-                        parameter_configs,
-                        parameter_value_wrappers):
-
+    def create_filename(self, execution_id, all_audit_names, script_name, start_time, custom_logging_config: Optional[LoggingConfig], parameter_configs, parameter_value_wrappers):
         audit_name = get_audit_name(all_audit_names)
         audit_name = file_utils.to_filename(audit_name)
-
         date_string = ms_to_datetime(start_time).strftime(self._resolve_date_format(custom_logging_config))
-
         username = audit_utils.get_audit_username(all_audit_names)
 
         mapping = {
             'ID': execution_id,
             'USERNAME': username,
-            'HOSTNAME': get_first_existing(all_audit_names, audit_utils.PROXIED_HOSTNAME, audit_utils.HOSTNAME,
-                                           default='unknown-host'),
+            'HOSTNAME': get_first_existing(all_audit_names, audit_utils.PROXIED_HOSTNAME, audit_utils.HOSTNAME, default='unknown-host'),
             'IP': get_first_existing(all_audit_names, audit_utils.PROXIED_IP, audit_utils.IP),
             'DATE': date_string,
             'AUDIT_NAME': audit_name,
@@ -391,7 +357,6 @@ class LogNameCreator:
         filename = model_helper.fill_parameter_values(parameter_configs, filename, parameter_value_wrappers)
         if not filename.lower().endswith('.log'):
             filename += '.log'
-
         filename = filename.replace(" ", "_").replace("/", "_")
 
         return filename
@@ -405,7 +370,6 @@ class LogNameCreator:
         if custom_logging_config and custom_logging_config.filename_pattern:
             return Template(custom_logging_config.filename_pattern)
         return self._filename_template
-
 
 class ExecutionLoggingController:
     def __init__(self, execution_service: ExecutionService, execution_logging_service):
@@ -433,7 +397,8 @@ class ExecutionLoggingController:
                 output_stream,
                 all_audit_names,
                 script_config,
-                parameter_value_wrappers)
+                parameter_value_wrappers
+            )
 
         def finished(execution_id, user):
             exit_code = execution_service.get_exit_code(execution_id)
@@ -442,19 +407,14 @@ class ExecutionLoggingController:
         self._execution_service.add_start_listener(started)
         self._execution_service.add_finish_listener(finished)
 
-
 def _rstrip_once(text, char):
     if text.endswith(char):
         text = text[:-1]
-
     return text
-
 
 def _lstrip_any_linesep(text):
     if text.startswith('\r\n'):
         return text[2:]
-
     if text.startswith(os.linesep):
         return text[len(os.linesep):]
-
     return text

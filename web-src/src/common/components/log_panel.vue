@@ -13,19 +13,19 @@
 </template>
 
 <script>
-import {copyToClipboard, isNull} from '@/common/utils/common';
-import {TerminalOutput} from '@/common/components/terminal/ansi/TerminalOutput'
-import {TextOutput} from '@/common/components/terminal/text/TextOutput'
-import {HtmlIFrameOutput} from '@/common/components/terminal/html/HtmlIFrameOutput'
-import {HtmlOutput} from '@/common/components/terminal/html/HtmlOutput'
+import { copyToClipboard, isNull } from '@/common/utils/common';
+import { TerminalOutput } from '@/common/components/terminal/ansi/TerminalOutput';
+import { TextOutput } from '@/common/components/terminal/text/TextOutput';
+import { HtmlIFrameOutput } from '@/common/components/terminal/html/HtmlIFrameOutput';
+import { HtmlOutput } from '@/common/components/terminal/html/HtmlOutput';
 
 export default {
   props: {
-    'autoscrollEnabled': {
+    autoscrollEnabled: {
       type: Boolean,
       default: true
     },
-    'outputFormat': {
+    outputFormat: {
       type: String,
       default: 'terminal'
     }
@@ -38,11 +38,12 @@ export default {
       scrollUpdater: null,
       needScrollUpdate: false,
       text: ''
-    }
+    };
   },
 
   mounted: function () {
     window.addEventListener('resize', this.revalidateScroll);
+    window.addEventListener('resize', this.handleResize);
 
     this.scrollUpdater = window.setInterval(() => {
       if (!this.needScrollUpdate) {
@@ -60,7 +61,14 @@ export default {
       }
     }, 40);
 
-    this.renderOutputElement()
+    this.renderOutputElement();
+    this.handleResize(); // Initial adjustment
+  },
+
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.revalidateScroll);
+    window.removeEventListener('resize', this.handleResize);
+    window.clearInterval(this.scrollUpdater);
   },
 
   methods: {
@@ -68,10 +76,9 @@ export default {
       var logContent = this.output.element;
 
       var scrollTop = logContent.scrollTop;
-      var newAtBottom = (scrollTop + logContent.clientHeight + 5) > (logContent.scrollHeight);
+      var newAtBottom = (scrollTop + logContent.clientHeight + 5) > logContent.scrollHeight;
       var newAtTop = scrollTop === 0;
 
-      // sometimes we can get scroll update (from incoming text) between autoscroll and this method
       if (!this.needScrollUpdate) {
         this.atBottom = newAtBottom;
         this.atTop = newAtTop;
@@ -81,7 +88,7 @@ export default {
     autoscroll: function () {
       var logContent = this.output.element;
 
-      if ((this.atBottom) && (!this.mouseDown)) {
+      if (this.atBottom && !this.mouseDown) {
         logContent.scrollTop = logContent.scrollHeight;
         return true;
       }
@@ -90,23 +97,35 @@ export default {
 
     revalidateScroll: function () {
       this.needScrollUpdate = true;
+      this.handleResize();
+    },
+
+    handleResize: function () {
+      const logContent = this.output.element;
+      if (!logContent) return;
+
+      const windowHeight = window.innerHeight;
+      const logPanelRect = this.$el.getBoundingClientRect();
+      const availableHeight = windowHeight - logPanelRect.top - 20;
+
+      logContent.style.height = `${availableHeight}px`;
     },
 
     setLog: function (text) {
-      this.text = ''
-      this.output.clear()
+      this.text = '';
+      this.output.clear();
 
-      this.recalculateScrollPosition()
+      this.recalculateScrollPosition();
 
-      this.appendLog(text)
+      this.appendLog(text);
     },
 
     appendLog: function (text) {
-      if (isNull(text) || (text === '')) {
+      if (isNull(text) || text === '') {
         return;
       }
 
-      this.text += text
+      this.text += text;
       this.output.write(text);
 
       this.revalidateScroll();
@@ -126,11 +145,11 @@ export default {
 
     renderOutputElement: function () {
       if (!this.output || !this.$el) {
-        return
+        return;
       }
 
-      const oldOutputs = this.$el.getElementsByClassName('log-content')
-      Array.from(oldOutputs).forEach(old => this.$el.removeChild(old))
+      const oldOutputs = this.$el.getElementsByClassName('log-content');
+      Array.from(oldOutputs).forEach(old => this.$el.removeChild(old));
 
       const terminal = this.output.element;
       terminal.classList.add('log-content');
@@ -140,13 +159,9 @@ export default {
 
       this.$el.insertBefore(terminal, this.$el.children[0]);
 
-      this.revalidateScroll()
+      this.revalidateScroll();
+      this.handleResize(); // Ensure initial adjustment
     }
-  },
-
-  beforeDestroy: function () {
-    window.removeEventListener('resize', this.revalidateScroll);
-    window.clearInterval(this.scrollUpdater);
   },
 
   watch: {
@@ -155,55 +170,48 @@ export default {
       handler: function () {
         switch (this.outputFormat) {
           case 'terminal':
-            this.output = new TerminalOutput()
-            break
+            this.output = new TerminalOutput();
+            break;
           case 'html_iframe':
-            this.output = new HtmlIFrameOutput()
-            break
+            this.output = new HtmlIFrameOutput();
+            break;
           case 'html':
-            this.output = new HtmlOutput()
-            break
+            this.output = new HtmlOutput();
+            break;
           case 'text':
-            this.output = new TextOutput()
-            break
+            this.output = new TextOutput();
+            break;
           default:
-            console.log('WARNING! Unknown outputFormat: "' + this.outputFormat + '". Falling back to terminal')
-            this.output = new TerminalOutput()
+            console.log('WARNING! Unknown outputFormat: "' + this.outputFormat + '". Falling back to terminal');
+            this.output = new TerminalOutput();
         }
 
-        this.output.write(this.text)
+        this.output.write(this.text);
 
-        this.renderOutputElement()
+        this.renderOutputElement();
       }
     }
   }
-}
-
+};
 </script>
 
 <style scoped>
 .log-panel {
   flex: 1;
-
   position: relative;
   min-height: 0;
-
   background: var(--surface-color);
-
   width: 100%;
-
   border: solid 1px var(--separator-color);
   border-radius: 2px;
 }
 
 .log-panel-shadow {
   position: absolute;
-
   width: 100%;
   min-height: 100%;
   top: 0;
   z-index: 5;
-
   pointer-events: none;
 }
 
@@ -220,7 +228,7 @@ export default {
 }
 
 .log-panel >>> .log-content.terminal-output img {
-  max-width: 100%
+  max-width: 100%;
 }
 
 .log-panel .copy-text-button {
@@ -233,34 +241,28 @@ export default {
   color: var(--font-color-disabled);
 }
 
-/*noinspection CssInvalidPropertyValue,CssOverwrittenProperties*/
 .log-panel >>> .log-content {
   display: block;
   overflow-y: auto;
   height: 100%;
   width: 100%;
 
-  font-size: .875em;
+  font-size: 1rem;
 
-  padding: 1.5em;
+  padding: 0.5em;
 
-  white-space: pre-wrap; /* CSS 3 */
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -o-pre-wrap; /* Opera 7 */
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
   overflow-wrap: break-word;
 
   -ms-word-break: break-all;
-  /* This is the dangerous one in WebKit, as it breaks things wherever */
   word-break: break-all;
-  /* Instead use this non-standard one: */
   word-break: break-word;
 
-  /* Adds a hyphen where the word breaks, if supported (No Blink) */
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-
-
 </style>

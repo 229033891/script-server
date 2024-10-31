@@ -1,0 +1,28 @@
+{
+  "name": "Demo Parameter",
+  "script_path": "conf\\scripts\\1.py",
+  "description": "This is a demo script!",
+  "output_format": "terminal",
+  "parameters": [
+    {
+      "name": "company",
+      "required": false,
+      "same_arg_param": true,
+      "type": "text",
+      "default": "company",
+      "pass_as": "argument"
+    },
+    {
+      "name": "warehouse",
+      "required": false,
+      "same_arg_param": false,
+      "type": "text",
+      "no_value": false,
+      "default": "warehouse",
+      "constant": false,
+      "secure": false,
+      "pass_as": "argument",
+      "stdin_expected_text": "test"
+    }
+  ]
+}

@@ -1,33 +1,81 @@
-[![Build Status](https://travis-ci.com/bugy/script-server.svg?branch=master&status=passed)](https://travis-ci.com/bugy/script-server) [![Gitter](https://badges.gitter.im/script-server/community.svg)](https://gitter.im/script-server/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # script-server
+
 Script-server is a Web UI for scripts.  
 
-As an administrator, you add your existing scripts into Script server and other users would be able to execute them via a web interface.
-The UI is very straightforward and can be used by non-tech people.
+## 激活环境
 
-No script modifications are needed - you configure each script in Script server and it creates the corresponding UI with parameters and takes care of validation, execution, etc.  
+```python
+ssenv\Scripts\activate
+```
 
-[DEMO server](https://script-server.net/)
+##  项目目录下执行下列代码,去除github同步代理报错的问题
 
-[Admin interface screenshots](https://github.com/bugy/script-server/wiki/Admin-interface)
+```python
+git config --global --unset http.proxy 
+git config --global --unset https.proxy
+```
+
+##  将PIP安装镜像源改为清华
+
+```python
+修改pip包镜像源 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+##  生成requirements.txt
+
+安装：
+
+```python
+pip install pipreqs
+```
+
+使用方法：
+
+```python
+pipreqs D:/py/Scancheck --force 
+```
+
+优点：pipreqs 会根据你的代码中实际使用的库生成 requirements.txt，而不是列出所有安装的库。这对减少依赖项非常有用。只需要文件的路径,不需要对应脚本的名称
+
+## Build web
+
+If you are making changes to web files, use npm run build or npm run serve
+
+切换到 CD D:\script-server\web-src\ 执行以下命令
+npm run serve 生成测试环境
+npm run build 生成正式的web文件
+生成web文件时,node.js安装V16版本,其他高版本可能会报错,需要安装vue-cli-service
+
+全局安装Vue CLi：
+
+```python
+npm install -g @vue/cli
+```
+
+在项目目录下安装
+
+```python
+npm install @vue/cli-service --save-dev
+```
+
+检查是否安装成功
+运行以下命令来确认 @vue/cli-service 是否已正确安装：
+
+```shell
+npm list @vue/cli-service
+```
+
+如果已安装，你应该会看到类似的信息：
+
+your-project-name@1.0.0 /path/to/your/project
+└── @vue/cli-service@4.x.x
 
 ## Features
-- Different types of script parameters (text, flag, dropdown, file upload, etc.)
-- Real-time script output
-- Users can send input during script execution
-- Auth (optional): LDAP, Google OAuth, htpasswd file
-- Access control
-- Alerts
-- Logging and auditing
-- Formatted output support (colors, styles, cursor positioning, clearing)
-- Download of script output files
-- Execution history
-- Admin page for script configuration
 
 For more details check [how to configure a script](https://github.com/bugy/script-server/wiki/Script-config)
 or [how to configure the server](https://github.com/bugy/script-server/wiki/Server-configuration)
-
+ 
 ## Requirements
 
 ### Server-side
@@ -51,17 +99,21 @@ Any more or less up to date browser with enabled JS
 Internet connection is **not** needed. All the files are loaded from the server.
 
 ## Installation
+
 ### For production
+
 1. Download script-server.zip file from [Latest release](https://github.com/bugy/script-server/releases/latest) or [Dev release](https://github.com/bugy/script-server/releases/tag/dev)
 2. Create script-server folder anywhere on your PC and extract zip content to this folder
 
 (For detailed steps on linux with virtualenv, please see [Installation guide](https://github.com/bugy/script-server/wiki/Installing-on-virtualenv-(linux)))
 
-##### As a docker container
+#### As a docker container
+
 Please find pre-built images here: https://hub.docker.com/r/bugy/script-server/tags  
 For the usage please check [this ticket](https://github.com/bugy/script-server/issues/171#issuecomment-461620836)
 
 ### For development
+
 1. Clone/download the repository
 2. Run 'tools/init.py --no-npm' script
 
@@ -69,25 +121,27 @@ For the usage please check [this ticket](https://github.com/bugy/script-server/i
 
 If you are making changes to web files, use `npm run build` or `npm run serve`
 
-### A issue running on OpenBSD and maybe other UNIX systems
-See [A issue running on OpenBSD and maybe other UNIX systems](https://github.com/bugy/script-server/wiki/OpenBSD-process-termination-issues).
-
-
 ## Setup and run
+
 1. Create configurations for your scripts in *conf/runners/* folder (see [script config page](https://github.com/bugy/script-server/wiki/Script-config) for details)
+
 2. Launch launcher.py from script-server folder
-  * Windows command: launcher.py
-  * Linux command: ./launcher.py
-3. Add/edit scripts on the admin page
+
+Windows command: launcher.py
+Linux command: ./launcher.py
+
+3.Add/edit scripts on the admin page
 
 By default, the server will run on http://localhost:5000
 
 ### Server config
+
 All the features listed above and some other minor features can be configured in *conf/conf.json* file. 
 It is allowed not to create this file. In this case, default values will be used.
 See [server config page](https://github.com/bugy/script-server/wiki/Server-configuration) for details
 
 ### Admin panel
+
 Admin panel is accessible on admin.html page (e.g. http://localhost:5000/admin.html)
 
 ## Logging
@@ -116,40 +170,3 @@ arguments in double-quotes). It's recommended to use typed parameters when appro
 proper values and so they are harder to be subject of commands injection. Such attempts would be easier to detect also.
 
 _Important!_ Command injection protection is fully supported for Linux, but _only_ for .bat and .exe files on Windows
-
-### XSS and CSRF
-
-_(v1.0 - v1.16)_  
-Script server _is_ vulnerable to these attacks.
-
-_(v1.17+)_  
-Script server is protected against XSRF attacks via a special token.      
-XSS protection: the code is written according to
-[OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
-and the only **known** vulnerabilities are:
-
-* `output_format`=`html_iframe`, see the reasoning in the
-  linked [Wiki page]((https://github.com/bugy/script-server/wiki/Script-config#output_format))
-
-## Contribution
-
-If you like the project and think you could help with making it better, there are many ways you can do it:
-
-- Create a new issue for new feature proposal or a bug
-- Implement existing issues (there are quite some of them: frontend/backend, simple/complex, choose whatever you like)
-- Help with improving the documentation
-- Set up a demo server
-- Spread a word about the project to your colleagues, friends, blogs or any other channels
-- Any other things you could imagine
-
-Any contribution would be of great help and I will highly appreciate it! 
-If you have any questions, please create a new issue, or contact me via buggygm@gmail.com
-
-## Asking questions
-If you have any questions, feel free to:
-- Ask in gitter: https://gitter.im/script-server/community
-- or [create a ticket](https://github.com/bugy/script-server/issues/new)
-- or contact me via email: buggygm@gmail.com (for some non-shareable questions)
-
-## Special thanks
-![JetBrains logo](https://github.com/JetBrains/logos/blob/master/web/jetbrains/jetbrains.svg)

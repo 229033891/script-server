@@ -322,9 +322,9 @@ def __migrate_repeat_param_and_same_arg_param(context):
 
 
 def _write_json(file_path, json_object, old_content):
-    space_matches = re.findall('^\s+', old_content, flags=re.MULTILINE)
+    space_matches = re.findall(r'^\s+', old_content, flags=re.MULTILINE)
     if space_matches:
-        indent_string = space_matches[0].replace('\t', '    ')
+        indent_string = space_matches[0].replace(r'\t', '    ')
         indent = min(len(indent_string), 8)
     else:
         indent = 4

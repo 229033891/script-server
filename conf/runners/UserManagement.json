@@ -1,0 +1,8 @@
+{
+  "name": "1.1\u7528\u6237\u7ba1\u7406",
+  "script_path": "conf\\scripts\\manage_user.py",
+  "group": "1.\u7cfb\u7edf\u7ba1\u7406",
+  "requires_terminal": false,
+  "output_format": "terminal",
+  "parameters": []
+}

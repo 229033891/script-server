@@ -10,7 +10,6 @@ from utils.string_utils import is_blank
 
 LOGGER = logging.getLogger('script_server.HtpasswdAuthenticator')
 
-
 def _select_verifier(htpasswd_path, process_invoker: ProcessInvoker):
     if _HtpasswdVerifier.is_installed(process_invoker):
         LOGGER.info('Using htpasswd utility for password verification')
@@ -18,7 +17,6 @@ def _select_verifier(htpasswd_path, process_invoker: ProcessInvoker):
 
     LOGGER.info('Using built-in encoder for password verification')
     return _BuiltItVerifier(htpasswd_path)
-
 
 class HtpasswdAuthenticator(auth_base.Authenticator):
     def __init__(self, params_dict, process_invoker: ProcessInvoker):
@@ -61,7 +59,6 @@ class HtpasswdAuthenticator(auth_base.Authenticator):
 
         return username
 
-
 class _HtpasswdVerifier:
 
     def __init__(self, file_path, process_invoker: ProcessInvoker) -> None:
@@ -86,30 +83,22 @@ class _HtpasswdVerifier:
         except FileNotFoundError:
             return False
 
-
 class _BuiltItVerifier:
 
     def __init__(self, file_path) -> None:
-        self.user_passwords = self._parse_htpasswd(file_path)
-
-        for password in self.user_passwords.values():
-            if password.startswith('$2y$'):
-                try:
-                    import bcrypt
-                except ImportError:
-                    raise InvalidServerConfigException('htpasswd contains bcrypt passwords. '
-                                                       'Please either install htpasswd utility or python bcrypt package')
+        self.file_path = file_path
 
     def verify(self, username, password):
-        if username not in self.user_passwords:
+        user_passwords = self._parse_htpasswd(self.file_path)
+
+        if username not in user_passwords:
             LOGGER.warning('User ' + username + ' does not exist')
             return False
 
-        existing_password = self.user_passwords.get(username)
+        existing_password = user_passwords.get(username)
 
-        # Selects encryption algorithm depending on the password format
-        # https://httpd.apache.org/docs/2.4/misc/password_encryptions.html
-        if existing_password.startswith('$2y$'):
+        # 选择加密算法
+        if existing_password.startswith('\$2y$'):
             import bcrypt
             return bcrypt.checkpw(password.encode('utf8'), existing_password.encode('utf8'))
 
